@@ -1,319 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fashion</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Fashion Home 1</title>
   </head>
   <body>
     <header>
-      <h1>
-        <img src="" alt="">
-        <span>E-shop</span>
-      </h1>
-      <nav class="menu">
-        <section>
-          <ul>
-            <li>
-              <a href="">Men</a>
+      <div class="container">
+        <a href="" class="header-brand">
+          <h1 class="brand">
+            <img class="brand-img" src="" alt="" />
+            <span class="brand-name">E-shop</span>
+          </h1>
+        </a>
+        <nav class="menu">
+          <ul class="submenu-list">
+            <li class="submenu-item">
+              <a class="submenu-link" href="">Men</a>
             </li>
-            <li>
-              <a href="">Women</a>
+            <li class="submenu-item">
+              <a class="submenu-link" href="">Women</a>
             </li>
-            <li>
-              <a href="">Kids</a>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <ul>
-            <li>
-              <a href="">
-              <img src="" alt="">
-              </a>
-            </li>
-            <li>
-              <a href="">
-              <img src="" alt="">
-              </a>
-            </li>
-            <li>
-              <a href="">
-              <img src="" alt="">
-              </a>
+            <li class="submenu-item">
+              <a class="submenu-link" href="">Kids</a>
             </li>
           </ul>
-        </section>
-      </nav>
+        </nav>
+        <ul class="menu action-list">
+          <li class="action-item">
+            <a class="action-link" href="">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+          <li class="action-item">
+            <a class="action-link" href="">
+              <i class="fa fa-shopping-cart"></i>
+            </a>
+          </li>
+          <li class="action-item">
+            <a class="action-link" href="">
+              <i class="fa fa-user-o"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
     </header>
     <main>
       <section class="section-banner">
-        <section class="content-banner">
-          <h2>Sale of the summner collection</h2>
-          <div>
-            <div>
-              <img src="" alt="">
-            </div>
-            <a href="">Shop now</a>
-          </div>
-        </section>
-        <section class="policy">
-          <div class="policy-item">
-            <div class="policy-img">
-              <img src="" alt="">
-            </div>
-            <div class="policy-content">
-              <h3>Free Shipping</h3>
-              <p>On purchases over $199</p>
+        <div class="container">
+          <div class="content-banner">
+            <img class="banner-img" src="" alt="" />
+            <div class="banner-content">
+              <h2 class="banner-title">
+                Sale of the <span>summner</span> collection
+              </h2>
+              <a class="banner-action" href="">Shop now</a>
             </div>
           </div>
-          <div class="policy-item">
-            <div class="policy-img">
-              <img src="" alt="">
-            </div>
-            <div class="policy-content">
-              <h3>99% Satisfied Customers</h3>
-              <p>Our clients' opinions speak for themselves</p>
-            </div>
-          </div>
-          <div class="policy-item">
-            <div class="policy-img">
-              <img src="" alt="">
-            </div>
-            <div class="policy-content">
-              <h3>Originality Guaranteed</h3>
-              <p>30 days warranty for each product from our store</p>
-            </div>
-          </div>
-          </div>
-        </section>
+          <ul class="policy-list">
+            <li class="policy-item">
+              <div class="policy-img">
+                <img src="" alt="" />
+              </div>
+              <div class="policy-content">
+                <h4 class="policy-title">Free Shipping</h4>
+                <p class="policy-decription">On purchases over $199</p>
+              </div>
+            </li>
+            <li class="policy-item">
+              <div class="policy-img">
+                <img src="" alt="" />
+              </div>
+              <div class="policy-content">
+                <h4 class="policy-title">99% Satisfied Customers</h4>
+                <p class="policy-decription">
+                  Our clients' opinions speak for themselves
+                </p>
+              </div>
+            </li>
+            <li class="policy-item">
+              <div class="policy-img">
+                <img src="" alt="" />
+              </div>
+              <div class="policy-content">
+                <h4 class="policy-title">Originality Guaranteed</h4>
+                <p class="policy-decription">
+                  30 days warranty for each product from our store
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
       <section class="section-blog">
-        <ul class="blog-item">
-          <li class="blog-subitem">
-            <img src="" alt="">
-            <div class="blog-content">
-              <h3>New arrivalsare now in!</h3>
-              <a href="">Show Collection</a>
-            </div>
-          </li>
-          <li class="blog-subitem">
-            <img src="" alt="">
-            <div class="blog-content">
-              <h3>Basic t-shirts $29,99</h3>
-              <a href="">More Detail</a>
-            </div>
-          </li>
-          <li class="blog-subitem">
-            <img src="" alt="">
-            <div class="blog-content">
-              <h3>Sale this summer</h3>
-              <a href="">View All</a>
-            </div>
-          </li>
-        </ul>
+        <div class="container">
+          <ul class="row blog-list">
+            <li class="col-6 blog-item">
+              <div class="blog-img">
+                <img class="blog-img" src="" alt="" />
+              </div>
+              <div class="blog-content">
+                <h4 class="blog-item">New arrivalsare now in!</h4>
+                <a class="blog-link" href="">Show Collection</a>
+              </div>
+            </li>
+            <li class="col-3 blog-subitem">
+              <div class="blog-img">
+                <img class="blog-img" src="" alt="" />
+              </div>
+              <div class="blog-content">
+                <h4 class="blog-item">Basic t-shirts $29,99</h4>
+                <a class="blog-link" href="">More Detail</a>
+              </div>
+            </li>
+            <li class="col-3 blog-subitem">
+              <div class="blog-img">
+                <img class="blog-img" src="" alt="" />
+              </div>
+              <div class="blog-content">
+                <span class="badge badge-primary">30%</span>
+                <h3 class="blog-item">Sale this summer</h3>
+                <a class="blog-link" href="">View All</a>
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
       <section class="section-product">
-        <section class="section-product-title">
-          <h4>Selected just for you</h4>
-          <a href="">Show More</a>
-        </section>
-        <ul class="section-product-item">
-          <li class="product-subitem">
-            <div class="product-img">
-              <img src="" alt="">
-              <span>30%</span>
-            </div>
-            <div class="product-content">
-              <h3>T-Shirt Summer Vibes</h3>
-              <div class="product-cost">
-                <span>$89.99</span>
-                <span>$119.99</span>
+        <div class="container">
+          <div class="product-bottom">
+            <h3 class="product-title">Selected just for you</h3>
+            <a class="product-action" href="">Show More</a>
+          </div>
+          <ul class="row product-list">
+            <li class="col-3 product-item">
+              <div class="product-img">
+                <img src="" alt="" />
+                <span class="badge badge-primary">30%</span>
               </div>
-            </div>
-          </li>
-          <li class="product-subitem">
-            <div class="product-img">
-              <img src="" alt="">
-            </div>
-            <div class="product-content">
-              <h3>Loose Knit 3/4 SleeveT-Shirt Summer Vibes</h3>
-              <div class="product-cost">
-                <span>$119.99</span>
+              <div class="product-content">
+                <h4 class="prduct-name">T-Shirt Summer Vibes</h4>
+                <div class="product-price">
+                  <span class="product-price-sell">$89.99</span>
+                  <span class="product-price-orginal">$119.99</span>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="product-subitem">
-            <div class="product-img">
-              <img src="" alt="">
-            </div>
-            <div class="product-content">
-              <h3>Basic Slim Fit T-Shirt</h3>
-              <div class="product-cost">
-                <span>$119.99</span>
+            </li>
+            <li class="col-3 product-item">
+              <div class="product-img">
+                <img src="" alt="" />
               </div>
-            </div>
-          </li>
-          <li class="product-subitem">
-            <div class="product-img">
-              <img src="" alt="">
-            </div>
-            <div class="product-content">
-              <h3>Loose Textured T-Shirt</h3>
-              <div class="product-cost">
-                <span>$119.99</span>
+              <div class="product-content">
+                <h4 class="prduct-name">
+                  Loose Knit 3/4 SleeveT-Shirt Summer Vibes
+                </h4>
+                <div class="product-price">
+                  <span class="product-price-sell">$119.99</span>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
+            </li>
+            <li class="col-3 product-item">
+              <div class="product-img">
+                <img src="" alt="" />
+              </div>
+              <div class="product-content">
+                <h4 class="prduct-name">Basic Slim Fit T-Shirt</h4>
+                <div class="product-price">
+                  <span class="product-price-sell">$119.99</span>
+                </div>
+              </div>
+            </li>
+            <li class="col-3 product-item">
+              <div class="product-img">
+                <img src="" alt="" />
+              </div>
+              <div class="product-content">
+                <h4 class="prduct-name">Loose Textured T-Shirt</h4>
+                <div class="product-price">
+                  <span class="product-price-sell">$119.99</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
       <section class="section-policy">
-        <h2>Why should you choose us?</h2>
-        <ul class="section-policy content">
-          <li class="section-policy item">
-            <img src="" alt="">
-            <h2>Free Shipping</h2>
-            <p>All purchases over $199 are eligible forfree shipping via USPS First Class Mail.</p>
-          </li>
-          <li class="section-policy item">
-            <img src="" alt="">
-            <h2>Easy Payments</h2>
-            <p>All payments are processed instantlyover a secure payment protocol.</p>
-          </li>
-          <li class="section-policy item">
-            <img src="" alt="">
-            <h2>Money-Back Guarantee</h2>
-            <p>If an item arrived damaged or you'vechanged your mind, you can send itback for a full refund.</p>
-          </li>
-          <li class="section-policy item">
-            <img src="" alt="">
-            <h2>Finest Quality</h2>
-            <p>Designed to last, each of our products hasbeen crafted with the finest materials.</p>
-          </li>
-        </ul>
+        <div class="container">
+          <h3 class="policy-main-title">Why should you choose us?</h3>
+          <ul class="row policy-list">
+            <li class="col-3 policy-item">
+              <img class="policy-img" alt="" />
+              <h4 class="policy-title">Free Shipping</h4>
+              <p class="policy-decription">
+                All purchases over $199 are eligible forfree shipping via USPS
+                First Class Mail.
+              </p>
+            </li>
+            <li class="col-3 policy-item">
+              <img class="policy-img" src="" alt="" />
+              <h4 class="policy-title">Easy Payments</h4>
+              <p class="policy-decription">
+                All payments are processed instantlyover a secure payment
+                protocol.
+              </p>
+            </li>
+            <li class="col-3 policy-item">
+              <img class="policy-img" src="" alt="" />
+              <h4 class="policy-title">Money-Back Guarantee</h4>
+              <p class="policy-decription">
+                If an item arrived damaged or you'vechanged your mind, you can
+                send itback for a full refund.
+              </p>
+            </li>
+            <li class="col-3 policy-item">
+              <img class="policy-img" src="" alt="" />
+              <h4 class="policy-title">Finest Quality</h4>
+              <p class="policy-decription">
+                Designed to last, each of our products hasbeen crafted with the
+                finest materials.
+              </p>
+            </li>
+          </ul>
+        </div>
       </section>
       <section class="section-product">
-        <section class="section-product-title">
-          <h4>Products in today</h4>
-        </section>
-        <ul class="section-product-item">
-          <li class="product-subitem">
-            <div class="product-img">
-              <img src="" alt="">
-              <span>30%</span>
-            </div>
-            <div class="product-content">
-              <h3>T-Shirt Summer Vibes</h3>
-              <div class="product-cost">
-                <span>$89.99</span>
-                <span>$119.99</span>
+        <div class="container">
+          <div class="product-bottom">
+            <h3 class="product-title">Products in today</h3>
+          </div>
+          <ul class="row product-list">
+            <li class="col-3 product-item">
+              <div class="product-img">
+                <img src="" alt="" />
+                <span class="badge badge-primary">30%</span>
               </div>
-            </div>
-          </li>
-          <li class="product-subitem">
-            <div class="product-img">
-              <img src="" alt="">
-            </div>
-            <div class="product-content">
-              <h3>Loose Knit 3/4 SleeveT-Shirt Summer Vibes</h3>
-              <div class="product-cost">
-                <span>$119.99</span>
+              <div class="product-content">
+                <h3 class="prduct-name">T-Shirt Summer Vibes</h3>
+                <div class="product-price">
+                  <span class="product-price-sell">$89.99</span>
+                  <span class="product-price-orginal">$119.99</span>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="product-subitem">
-            <div class="product-img">
-              <img src="" alt="">
-            </div>
-            <div class="product-content">
-              <h3>Basic Slim Fit T-Shirt</h3>
-              <div class="product-cost">
-                <span>$119.99</span>
+            </li>
+            <li class="col-3 product-item">
+              <div class="product-img">
+                <img src="" alt="" />
               </div>
-            </div>
-          </li>
-          <li class="product-subitem">
-            <div class="product-img">
-              <img src="" alt="">
-            </div>
-            <div class="product-content">
-              <h3>Loose Textured T-Shirt</h3>
-              <div class="product-cost">
-                <span>$119.99</span>
+              <div class="product-content">
+                <h3 class="prduct-name">
+                  Loose Knit 3/4 SleeveT-Shirt Summer Vibes
+                </h3>
+                <div class="product-price">
+                  <span class="product-price-sell">$119.99</span>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
+            </li>
+            <li class="col-3 product-item">
+              <div class="product-img">
+                <img src="" alt="" />
+              </div>
+              <div class="product-content">
+                <h3 class="prduct-name">Basic Slim Fit T-Shirt</h3>
+                <div class="product-price">
+                  <span class="product-price-sell">$119.99</span>
+                </div>
+              </div>
+            </li>
+            <li class="col-3 product-item">
+              <div class="product-img">
+                <img src="" alt="" />
+              </div>
+              <div class="product-content">
+                <h3>Loose Textured T-Shirt</h3>
+                <div class="product-price">
+                  <span class="product-price-sell">$119.99</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
       <section class="section-banner-form">
-        <img src="" alt="">
-        <form action="">
-          <h4>Subscribe to our newsletter andreceive exclusive offers every week</h4>
-          <input type="text" name="" id="" placeholder="Enter your email">
-          <button type="submit">SUBSCRIBE</button>
-        </form>
+        <img class="form-img" src="" alt="" />
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <h3 class="form-title">
+                Subscribe to our newsletter andreceive exclusive offers every
+                week
+              </h3>
+            </div>
+            <div class="col-6">
+              <form class="form-content" action="">
+                <input
+                  class="input-content"
+                  type="text"
+                  placeholder="Enter your email"
+                />
+                <button class="btn btn-warning btn-" type="submit">
+                  SUBSCRIBE
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <footer>
-      <section class="section-footer">
-        <ul class="main-inform">
-          <li class="sub-inform">
-            <img src="" alt="">
-            <h2>E-Shop</h2>
-            <p>House My Brand designs clothing for the young, the old &everyone in between – but most
-              importantly, for the fashionable
+      <section class="footer-top">
+        <ul class="footer-list">
+          <li class="footer-item">
+            <a class="footer-link" href="">
+              <img class="link-image" src="" alt="" />
+              <span class="footer-link-name">E-Shop</span>
+            </a>
+            <p class="link-content">
+              House My Brand designs clothing for the young, the old &everyone
+              in between – but most importantly, for the fashionable
             </p>
-            <div>
-              <a href="">
-              <img src="" alt="">
-              </a>
-              <a href="">
-              <img src="" alt="">
-              </a>
-              <a href="">
-              <img src="" alt="">
-              </a>
-              <a href="">
-              <img src="" alt="">
-              </a>
-              <a href="">
-              <img src="" alt="">
-              </a>
-            </div>
-          </li>
-          <li class="sub-inform">
-            Shopping online
-            <ul>
-              <li>Order Status</li>
-              <li>Shipping and Delivery</li>
-              <li>Returns</li>
-              <li>Payment Options</li>
-              <li>Contact Us</li>
+            <ul class="social-list">
+              <li class="social-item">
+                <a class="social-link" href="">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="social-item">
+                <a class="social-link" href="">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="social-item">
+                <a class="social-link" href="">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+              <li class="social-item">
+                <a class="social-link" href="">
+                  <i class="fa fa-instagram"></i>
+                </a>
+              </li>
+              <li class="social-item">
+                <a class="social-link" href="">
+                  <i class="fa fa-youtube-play"></i>
+                </a>
+              </li>
             </ul>
           </li>
-          <li class="sub-inform">
-            Information
-            <ul>
-              <li>Gift Cards</li>
-              <li>Find a store</li>
-              <li>Newsletter</li>
-              <li>Bacome a member</li>
-              <li>Site feedback</li>
+          <li class="footer-item">
+            <p class="item-title">Shopping online</p>
+            <ul class="item-list">
+              <li class="subitem">Order Status</li>
+              <li class="subitem">Shipping and Delivery</li>
+              <li class="subitem">Returns</li>
+              <li class="subitem">Payment Options</li>
+              <li class="subitem">Contact Us</li>
             </ul>
           </li>
-          <li class="sub-inform">
-            Contact
-            <ul>
-              <li>store@uikit.com</li>
-              <li>Hotline: +1 131 138 138</li>
+          <li class="footer-item">
+            <p class="item-title">Information</p>
+            <ul class="item-list">
+              <li class="subitem">Gift Cards</li>
+              <li class="subitem">Find a store</li>
+              <li class="subitem">Newsletter</li>
+              <li class="subitem">Bacome a member</li>
+              <li class="subitem">Site feedback</li>
+            </ul>
+          </li>
+          <li class="footer-item">
+            <p class="item-title">Contact</p>
+            <ul class="item-list">
+              <li class="subitem">store@uikit.com</li>
+              <li class="subitem">Hotline: +1 131 138 138</li>
             </ul>
           </li>
         </ul>
       </section>
-      <section class="section-copyright">
+      <div class="footer-bottom">
         <p>DESIGN BY ICEO.CO - © 2019. ALL RIGHTS RESERVED.</p>
-      </section>
+      </div>
     </footer>
   </body>
 </html>
