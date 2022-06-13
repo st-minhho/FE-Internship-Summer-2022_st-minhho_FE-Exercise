@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,50 +9,54 @@
   <link rel="stylesheet" href="index.css">
   <title>Fashion Home 1</title>
 </head>
+
 <body>
   <header>
     <div class="container">
-      <div class="header-inner">
-        <a href="#" class="header-brand">
-          <h1 class="brand">
-            <div class="image-logo">
-              <img src="./images/logo.png" alt="Image Logo Brand" />
-            </div>
-            <div class="image-brand">
-              <img src="./images/name-brand.png" alt="Image name Brand">
-            </div>
-          </h1>
-        </a>
-        <nav class="nav-header">
-          <ul class="menu sub-menu-list">
-            <li class="sub-menu-item">
-              <a class="sub-menu-link" href="">Men</a>
+      <div class="section-header">
+        <div class="header-inner">
+          <a href="#" class="header-brand">
+            <h1 class="brand">
+              <div class="image-logo">
+                <img src="./images/logo.png" alt="Image Logo Brand" />
+              </div>
+              <div class="image-brand">
+                <img src="./images/name-brand.png" alt="Image name Brand">
+              </div>
+            </h1>
+          </a>
+          <nav class="nav-header">
+            <ul class="menu sub-menu-list">
+              <li class="sub-menu-item">
+                <a class="sub-menu-link" href="">Men</a>
+              </li>
+              <li class="sub-menu-item">
+                <a class="sub-menu-link" href="">Women</a>
+              </li>
+              <li class="sub-menu-item">
+                <a class="sub-menu-link" href="">Kids</a>
+              </li>
+            </ul>
+          </nav>
+          <ul class="menu action-list">
+            <li class="action-item">
+              <a class="action-link" href="">
+                <i class="fa fa-search"></i>
+              </a>
             </li>
-            <li class="sub-menu-item">
-              <a class="sub-menu-link" href="">Women</a>
+            <li class="action-item">
+              <a class="action-link" href="">
+                <i class="fa fa-shopping-cart"></i>
+              </a>
             </li>
-            <li class="sub-menu-item">
-              <a class="sub-menu-link" href="">Kids</a>
+            <li class="action-item">
+              <a class="action-link" href="">
+                <i class="fa fa-user-o"></i>
+              </a>
             </li>
           </ul>
-        </nav>
-        <ul class="menu action-list">
-          <li class="action-item">
-            <a class="action-link" href="">
-              <i class="fa fa-search"></i>
-            </a>
-          </li>
-          <li class="action-item">
-            <a class="action-link" href="">
-              <i class="fa fa-shopping-cart"></i>
-            </a>
-          </li>
-          <li class="action-item">
-            <a class="action-link" href="">
-              <i class="fa fa-user-o"></i>
-            </a>
-          </li>
-        </ul>
+        </div>
+
       </div>
     </div>
   </header>
@@ -136,7 +141,7 @@
     </section>
     <section class="section-products">
       <div class="container">
-        <div class="product-header product-header-btn">
+        <div class="product-header header-link">
           <h3 class="product title">Selected just for you</h3>
           <a class="btn btn-secondary btn-show" href="">Show More</a>
         </div>
@@ -144,7 +149,7 @@
           <li class="col-3 product-item">
             <div class="product-img">
               <img src="./images/image-product1.png" alt="Image product" />
-              <div class="badge badge-primary">30%</div>
+              <div class="badge badge-primary">-30%</div>
             </div>
             <div class="product-content">
               <h4 class="product-name">T-Shirt Summer Vibes</h4>
@@ -200,7 +205,8 @@
             </div>
             <div class="policy-content">
               <h4 class="policy-title">Free Shipping</h4>
-              <p class="policy-description">All purchases over $199 are eligible forfree shipping via USPS First Class Mail.</p>
+              <p class="policy-description">All purchases over $199 are eligible forfree shipping via USPS First Class
+                Mail.</p>
             </div>
           </li>
           <li class="col-3 policy-item">
@@ -218,7 +224,8 @@
             </div>
             <div class="policy-content">
               <h4 class="policy-title">Money-Back Guarantee</h4>
-              <p class="policy-description">If an item arrived damaged or you'vechanged your mind, you can send itback for a full refund.</p>
+              <p class="policy-description">If an item arrived damaged or you'vechanged your mind, you can send itback
+                for a full refund.</p>
             </div>
           </li>
           <li class="col-3 policy-item">
@@ -227,7 +234,8 @@
             </div>
             <div class="policy-content">
               <h4 class="policy-title">Finest Quality</h4>
-              <p class="policy-description">Designed to last, each of our products hasbeen crafted with the finest materials.</p>
+              <p class="policy-description">Designed to last, each of our products hasbeen crafted with the finest
+                materials.</p>
             </div>
           </li>
         </ul>
@@ -242,7 +250,7 @@
           <li class="col-3 product-item">
             <div class="product-img">
               <img src="./images/image-product1.png" alt="Image product" />
-              <span class="badge badge-primary">30%</span>
+              <span class="badge badge-primary">-30%</span>
             </div>
             <div class="product-content">
               <h4 class="product-name">T-Shirt Summer Vibes</h4>
@@ -291,29 +299,35 @@
     <section class="section-banner-form">
       <div class="overlay"></div>
       <div class="container ">
-        <div class="row form-subscribe">
-          <div class="col-6">
-            <h3 class="form-title">Subscribe to our newsletter andreceive exclusive offers every week</h3>
+        <div class="form-subscribe">
+        <div class="row">
+            <div class="col-6">
+              <h3 class="form-title">Subscribe to our newsletter andreceive exclusive offers every week</h3>
+            </div>
+            <div class="col-6">
+              <form class="form-content" action="">
+                <input class="input-content" type="text" placeholder="Enter your email" />
+                <button class="btn btn-primary btn-subscribe" type="submit">SUBSCRIBE</button>
+              </form>
+            </div>
           </div>
-          <div class="col-6">
-            <form class="form-content" action="">
-              <input class="input-content" type="text" placeholder="Enter your email" />
-              <button class="btn btn-primary btn-subscribe" type="submit">SUBSCRIBE</button>
-            </form>
-          </div>
+
         </div>
       </div>
     </section>
   </main>
   <footer class="section-footer">
     <div class="container footer">
-      <div class="row footer-top">
-        <div class="col-6 footer-left">
-          <a class="footer-link" href="">
-            <img src="./images/logo.png" alt="Image footer" />
-            <img src="./images/name-brand.png" alt="Image footer" />
-          </a>
-          <p class="link-content">House My Brand designs clothing for the young, the old &everyone in between – but most importantly, for the fashionable</p>
+      <div class="footer-top">
+        <div class="footer-left">1
+          <div class="footer-description">
+            <a class="footer-link" href="">
+              <img src="./images/logo.png" alt="Image footer" />
+              <img src="./images/name-brand.png" alt="Image footer" />
+            </a>
+            <p class="link-content">House My Brand designs clothing for the young, the old &everyone in between – but
+              most importantly, for the fashionable</p>
+          </div>
           <ul class="social-list">
             <li class="social-item">
               <a class="social-link" href="">
@@ -342,7 +356,7 @@
             </li>
           </ul>
         </div>
-        <ul class="col-6 footer-right">
+        <ul class="footer-right">
           <li class="footer-item">
             <ul class="item-list">
               <li class="sub-item item-title">Shopping online</li>
@@ -378,4 +392,5 @@
     </div>
   </footer>
 </body>
+
 </html>

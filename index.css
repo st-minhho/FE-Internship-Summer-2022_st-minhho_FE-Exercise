@@ -63,7 +63,7 @@ input:focus-visible {
   margin: 0 auto;
   width: 100%;
   max-width: 1152px;
-  position: relative;
+  /* position: relative; */
 }
 
 .row {
@@ -173,13 +173,16 @@ input:focus-visible {
   line-height: 48px;
 }
 /* --Header-- */
+.section-header {
+  position: relative;
+}
 .header-inner {
   position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 48px 0;
+  margin: 48px 0;
 }
 .brand {
   display: flex;
@@ -234,7 +237,7 @@ input:focus-visible {
 .banner-content {
   position: absolute;
   top: 220px;
-  left: 96px;
+  left: 240px;
   color: var(--white);
 }
 .banner-title {
@@ -248,7 +251,7 @@ input:focus-visible {
 
 .banner-action {
   display: flex;
-  padding-top: 24px;
+  margin-top: 24px;
   gap: 0 21px;
 }
 .action-img {
@@ -306,7 +309,8 @@ input:focus-visible {
 
 /* --Blogs-- */
 .section-blogs {
-  padding: 48px 0;
+  margin-top: 48px;
+  margin-bottom: 96px;
 }
 
 .blog-item-1 {
@@ -338,7 +342,7 @@ input:focus-visible {
   justify-content: space-between;
   align-items: flex-start;
   height: 140px;
-  padding-left: 40px;
+  padding: 0 40px;
 }
 .blog-overlay {
   position: absolute;
@@ -363,21 +367,20 @@ input:focus-visible {
 /* --product-- */
 .section-products {
   display: flex;
-  padding-top: 48px;
-  padding-bottom: 48px;
+  margin-bottom: 48px;
 }
 
 .product-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 34px;
+  margin-bottom: 34px;
 }
 
 /* .section-products:first-child .product-header{
   justify-content: space-between;
 } */
-.product-header-btn {
+.header-link{
   justify-content: space-between;
 }
 
@@ -397,6 +400,7 @@ input:focus-visible {
 .product-content {
   display: flex;
   flex-direction: column;
+  margin-top: 15px;
 }
 
 .product-name {
@@ -422,16 +426,16 @@ input:focus-visible {
 /* Section policy */
 .section-policy {
   background-color: var(--gray-light);
+  padding: 48px 0;
+  margin-bottom: 48px;
 }
 .section-policy .policy-item {
   flex-direction: column;
-  gap: 46px;
-  padding-bottom: 54px;
+  gap: 46px 0;
 }
 
 .policy-header {
-  padding-top: 48px;
-  padding-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .policy-img {
@@ -475,6 +479,10 @@ input:focus-visible {
 }
 
 .form-subscribe {
+  position: relative;
+}
+
+.form-subscribe .row {
   align-items: center;
 }
 
@@ -517,13 +525,30 @@ input:focus-visible {
   justify-content: space-between;
 }
 
+.footer-description {
+  display: flex;
+  flex-direction: column;
+  gap: 24px 0;
+  align-items: flex-start;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 0 22px;
+}
 .link-content {
   width: 373px;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
 }
 
 .footer-right {
   display: flex;
   justify-content: space-between;
+  gap: 0 100px;
 }
 .social-list {
   display: flex;
