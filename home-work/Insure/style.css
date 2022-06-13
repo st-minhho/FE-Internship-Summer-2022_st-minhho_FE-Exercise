@@ -1,11 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 :root {
-  --primary-color: #2d2640;
-  --secondary-color: #837d87;
-  --blue-light: #96a9c6;
-  --white: #ffffff;
-  --black: #333333;
   --font-xxs: 12px;
   --font-xs: 13px;
   --font-sm: 14px;
@@ -17,6 +12,11 @@
   --font-xxl: 70px;
   --font-family-primary: "Lato", sans-serif;
   --font-fmaily-secondary: "Lora", serif;
+  --primary-color: #2d2640;
+  --secondary-color: #837d87;
+  --blue-light: #96a9c6;
+  --white: #ffffff;
+  --black: #333333;
 }
 
 * {
