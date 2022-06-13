@@ -54,16 +54,11 @@ input:focus-visible {
   outline: none;
 }
 
-/* ::-webkit-input-placeholder {
-  font-weight: 400;
-  font-size: 13px;
-} */
 
 .container {
   margin: 0 auto;
   width: 100%;
   max-width: 1152px;
-  /* position: relative; */
 }
 
 .row {
@@ -377,9 +372,6 @@ input:focus-visible {
   margin-bottom: 34px;
 }
 
-/* .section-products:first-child .product-header{
-  justify-content: space-between;
-} */
 .header-link{
   justify-content: space-between;
 }
