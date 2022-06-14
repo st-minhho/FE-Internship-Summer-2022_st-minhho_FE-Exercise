@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="style.css">
   <title>Fashion Home 1</title>
 </head>
 
@@ -21,20 +21,20 @@
                 <img src="./images/logo.png" alt="Image Logo Brand" />
               </div>
               <div class="image-brand">
-                <img src="./images/name-brand.png" alt="Image name Brand">
+                <img src="./images/name-brand.png" alt="Image name Brand" />
               </div>
             </h1>
           </a>
           <nav class="nav-header">
             <ul class="menu sub-menu-list">
               <li class="sub-menu-item">
-                <a class="sub-menu-link" href="">Men</a>
+                <a class="sub-menu-link text-primary" href="">Men</a>
               </li>
               <li class="sub-menu-item">
-                <a class="sub-menu-link" href="">Women</a>
+                <a class="sub-menu-link text-primary" href="">Women</a>
               </li>
               <li class="sub-menu-item">
-                <a class="sub-menu-link" href="">Kids</a>
+                <a class="sub-menu-link text-primary" href="">Kids</a>
               </li>
             </ul>
           </nav>
@@ -62,10 +62,10 @@
   </header>
   <main>
     <section class="section-banner">
-      <div class="overlay banner">
+      <div class="banner">
         <div class="container">
           <div class="banner-content">
-            <h2 class="banner-title">Sale of the<br><span>summner</span><br>collection</h2>
+            <h2 class="banner-title">Sale of the<br><span class="text-primary">summner</span><br>collection</h2>
             <div class="banner-action">
               <div class="action-img">
                 <img src="./images/ArrowLeft.png" alt="ArrowLeft">
@@ -82,7 +82,7 @@
           </div>
           <div class="banner-policy-content">
             <h4 class="banner-policy-title">Free Shipping</h4>
-            <p class="banner-policy-description">On purchases over $199</p>
+            <p class="banner-policy-description text-content-policy">On purchases over $199</p>
           </div>
         </li>
         <li class="policy-item">
@@ -91,7 +91,7 @@
           </div>
           <div class="banner-policy-content">
             <h4 class="banner-policy-title">99% Satisfied Customers</h4>
-            <p class="banner-policy-description">Our clients' opinions speak<br>for themselves</p>
+            <p class="banner-policy-description text-content-policy">Our clients' opinions speak<br>for themselves</p>
           </div>
         </li>
         <li class="policy-item">
@@ -100,7 +100,8 @@
           </div>
           <div class="banner-policy-content">
             <h4 class="banner-policy-title">Originality Guaranteed</h4>
-            <p class="banner-policy-description">30 days warranty for each<br>product from our store</p>
+            <p class="banner-policy-description text-content-policy">30 days warranty for each<br>product from our store
+            </p>
           </div>
         </li>
       </ul>
@@ -108,27 +109,24 @@
     <section class="section-blogs">
       <div class="container">
         <ul class="row blogs-list">
-          <li class="col-6 blog-item ">
-            <div class="blog-item-1">
-              <div class="blog-overlay"></div>
+          <li class="col-6">
+            <div class=" blog-item blog-item-1">
               <div class="blog-content">
                 <h4 class="blog-title">New arrivalsare now in!</h4>
                 <a class="btn btn-secondary blog-link" href="">Show Collection</a>
               </div>
             </div>
           </li>
-          <li class="col-3 blog-item">
-            <div class="blog-item-2">
-              <div class="blog-overlay"></div>
+          <li class="col-3">
+            <div class="blog-item blog-item-2">
               <div class="blog-content">
                 <h4 class="blog-title">Basic t-shirts $29,99</h4>
                 <a class="btn btn-secondary blog-link" href="">More Detail</a>
               </div>
             </div>
           </li>
-          <li class="col-3 blog-item">
-            <div class="blog-item-3">
-              <div class="blog-overlay"></div>
+          <li class="col-3">
+            <div class="blog-item blog-item-3">
               <div class="badge badge-primary badge-blog">-50%</div>
               <div class="blog-content">
                 <h4 class="blog-title">Sale this summer</h4>
@@ -197,7 +195,7 @@
     </section>
     <section class="section-policy">
       <div class="container">
-        <h3 class="title policy-header">Why should you choose us?</h3>
+        <h3 class="policy-header title">Why should you choose us?</h3>
         <ul class="row policy-list">
           <li class="col-3 policy-item">
             <div class="policy-img">
@@ -205,8 +203,7 @@
             </div>
             <div class="policy-content">
               <h4 class="policy-title">Free Shipping</h4>
-              <p class="policy-description">All purchases over $199 are eligible forfree shipping via USPS First Class
-                Mail.</p>
+              <p class="policy-description text-content-policy">All purchases over $199 are eligible forfree shipping via USPS First Class Mail.</p>
             </div>
           </li>
           <li class="col-3 policy-item">
@@ -214,8 +211,8 @@
               <img src="./images/noun_easy_payment.svg" alt="Image policy" />
             </div>
             <div class="policy-content">
-              <h4 class="policy-title">Easy Payments</h4>
-              <p class="policy-description">All payments are processed instantlyover a secure payment protocol.</p>
+              <h4 class="policy-title policy-active">Easy Payments</h4>
+              <p class="policy-description text-content-policy">All payments are processed instantlyover a secure payment protocol.</p>
             </div>
           </li>
           <li class="col-3 policy-item">
@@ -224,8 +221,7 @@
             </div>
             <div class="policy-content">
               <h4 class="policy-title">Money-Back Guarantee</h4>
-              <p class="policy-description">If an item arrived damaged or you'vechanged your mind, you can send itback
-                for a full refund.</p>
+              <p class="policy-description text-content-policy">If an item arrived damaged or you'vechanged your mind, you can send itback for a full refund.</p>
             </div>
           </li>
           <li class="col-3 policy-item">
@@ -234,8 +230,7 @@
             </div>
             <div class="policy-content">
               <h4 class="policy-title">Finest Quality</h4>
-              <p class="policy-description">Designed to last, each of our products hasbeen crafted with the finest
-                materials.</p>
+              <p class="policy-description text-content-policy">Designed to last, each of our products hasbeen crafted with the finest materials.</p>
             </div>
           </li>
         </ul>
@@ -297,12 +292,11 @@
       </div>
     </section>
     <section class="section-banner-form">
-      <div class="overlay"></div>
       <div class="container ">
         <div class="form-subscribe">
-        <div class="row">
+          <div class="row form-item">
             <div class="col-6">
-              <h3 class="form-title">Subscribe to our newsletter andreceive exclusive offers every week</h3>
+              <h3 class="form-title text-secondary">Subscribe to our newsletter andreceive exclusive offers every week</h3>
             </div>
             <div class="col-6">
               <form class="form-content" action="">
@@ -316,17 +310,16 @@
       </div>
     </section>
   </main>
-  <footer class="section-footer">
+  <footer class="section-footer text-secondary">
     <div class="container footer">
       <div class="footer-top">
-        <div class="footer-left">1
+        <div class="footer-left">
           <div class="footer-description">
             <a class="footer-link" href="">
               <img src="./images/logo.png" alt="Image footer" />
               <img src="./images/name-brand.png" alt="Image footer" />
             </a>
-            <p class="link-content">House My Brand designs clothing for the young, the old &everyone in between – but
-              most importantly, for the fashionable</p>
+            <p class="link-content">House My Brand designs clothing for the young, the old &everyone in between – but most importantly, for the fashionable</p>
           </div>
           <ul class="social-list">
             <li class="social-item">
