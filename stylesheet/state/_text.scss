@@ -1,19 +1,19 @@
 .text {
-    &-primary {
-      color: map-get($color, primary-color);
-    }
-  
-    &-secondary {
-      font-weight: map-get($font-weight, font-w400);
-      color: map-get($color, "white");
-    }
-  
-    &-content-policy {
-      font-weight: map-get($font-weight, font-w400);
-      color: map-get($color, "gray");
-    }
+  &-primary {
+    color: map-get($color, primary-color);
   }
-  
-  .title{
-    font-weight: map-get($font-weight, font-w300 );
+
+  &-secondary {
+    font-weight: map-get($font-weight, font-w400);
+    color: map-get($color, "white");
   }
+
+  &-content-policy {
+    font-weight: map-get($font-weight, font-w400);
+    color: map-get($color, "gray");
+  }
+}
+
+.title{
+  font-weight: map-get($font-weight, font-w300 );
+}
