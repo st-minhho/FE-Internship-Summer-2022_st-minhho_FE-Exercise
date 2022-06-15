@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: map-get($font-size, font-md);
+  font-family: $primary-font-family;
+  color: map-get($color, "black");
+  background-color: map-get($color, "white");
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  margin: 0;
+  padding: 1px 24px;
+  border: none;
+  background-color: field;
+  text-indent: 0px;
+  text-align: start;
+  appearance: auto;
+  -webkit-rtl-ordering: logical;
+  // cursor: text;
+  writing-mode: horizontal-tb !important;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+// img {
+//   width: 100%;
+//   object-fit: cover;
+// }
