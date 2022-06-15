@@ -10,3 +10,13 @@
     color: map-get($color, "white");
   }
 }
+
+
+@media only screen and (max-width: 375px) {
+  .badge {
+    width: 32px;
+    padding: 2px 0;
+    border-radius: 9px;
+    font-size: map-get($font-size, font-xxs-3);
+  }
+}

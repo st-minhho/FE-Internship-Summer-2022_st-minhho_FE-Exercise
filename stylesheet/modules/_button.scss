@@ -19,3 +19,18 @@
     color: map-get($color, "black");
   }
 }
+
+@media only screen and (max-width: 375px) {
+  .btn {
+    display: inline-block;
+    padding: 7px ;
+    border: none;
+    border-radius: 33px;
+    font-size: var(--font-xs);
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all ease-in 0.1s;
+  }  
+
+}

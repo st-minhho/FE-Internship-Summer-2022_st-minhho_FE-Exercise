@@ -87,6 +87,7 @@
     justify-content: center;
     width: 36px;
     height: 36px;
+    padding: 10px;
     border-radius: 10px;
     background-color: map-get($color, "organe-light");
   }
@@ -160,7 +161,7 @@
 /* --product-- */
 .section-products {
   display: flex;
-  margin-bottom: 48px;
+  padding: 48px 0;
 
   .product {
     &-header {
@@ -175,7 +176,8 @@
     }
     &-img {
       position: relative;
-    } 
+      margin-bottom: 15px;
+    }
 
     &-img .badge {
       position: absolute;
@@ -186,29 +188,28 @@
     &-content {
       display: flex;
       flex-direction: column;
-      margin-top: 15px;
     }
 
     &-name {
       font-size: map-get($font-size, font-md);
-      font-weight: 300;
+      font-weight: map-get($font-weight, font-w300);
     }
 
     &-price {
       display: flex;
       justify-content: space-between;
-      font-weight: 400;
-      font-size: 20px;
+      font-weight: map-get($font-weight, font-w400);
+      font-size: map-get($font-size, font-md-3);
     }
   }
 }
 
 .product-price {
   .sale {
-    color: var(--red);
+    color: map-get($color, secondary-color);
   }
   .price-original {
-    color: var(--gray-md);
+    color: map-get($color, "dark-gray");
   }
 }
 
@@ -218,180 +219,161 @@
 
 /* Section policy */
 .section-policy {
-  background-color: var(--gray-light);
+  background-color: map-get($color, "light-gray");
   padding: 48px 0;
-  margin-bottom: 48px;
+
+  .policy {
+    &-header {
+      margin-bottom: 50px;
+    }
+  }
 }
 
-.section-policy .policy-item {
-  flex-direction: column;
-  gap: 46px 0;
+.policy {
+  &-title {
+    font-size: map-get($font-size, font-md);
+    font-weight: map-get($font-weight, font-w700);
+    margin-bottom: 16px;
+  }
+
+  &-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68.79px;
+    height: 68px;
+    padding: 18px;
+    margin-bottom: 46px;
+    border-radius: 10px;
+    background-color: map-get($color, "white");
+  }
+  &-active {
+    color: map-get($color, primary-color);
+  }
+  &-description {
+    font-size: map-get($font-size, font-sm);
+  }
 }
 
-.policy-header {
-  margin-bottom: 50px;
-}
-
-.policy-img {
+/* --Form-- */
+.section-banner-form {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 68.79px;
-  height: 68px;
-  border-radius: 10px;
-  background-color: var(--white);
+  height: 241px;
+  background: url(../images/banner-footer.png);
 }
 
-.policy-title {
+.section-banner-form::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 241px;
+  background: linear-gradient(90deg, #000000 33.28%, rgba(0, 0, 0, 0) 94.05%);
+  opacity: 0.7;
+}
+
+.form-subscribe {
+  position: relative;
+}
+
+.form-subscribe .form-item {
+  align-items: center;
+}
+
+.form-title {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.form-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-content {
+  width: 351px;
+  border-radius: 61px;
+}
+
+.btn-subscribe {
+  width: 175px;
+  border-radius: 56px;
+}
+
+//Doan này em chưa viết sang scss
+/* --Footer-- */
+.section-footer {
+  font-size: 14px;
+  background-color: map-get($color,primary-color );
+}
+
+.footer {
+  padding: 51px 0;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px 0;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 0 22px;
+}
+
+.link-content {
+  width: 373px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-right {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 100px;
+}
+
+.social-list {
+  display: flex;
+  gap: 0 33px;
+}
+
+.social-list i {
+  font-size: 20px;
+  color: map-get($color, "white" );
+}
+
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 19px 0;
+}
+
+.item-title {
   font-size: 16px;
   font-weight: 700;
-  padding-bottom: 16px;
 }
 
-.policy-active {
-  color: var(--primary-color);
+.footer-bottom {
+  border-top: 2px solid map-get($color, "white" );
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
 }
 
-.policy-description {
-  font-size: 14px;
-}
-
-@media only screen and (max-width: 375px) {
-  .section {
-    &-banner {
-      background-image: url(../images/mobile-images/banner-mobile.png);
-      padding-top: 271px;
-    }
-  }
-
-  .section-banner {
-    .banner {
-      &-content {
-        position: relative;
-        top: 0;
-        left: 0;
-      }
-
-      &-title {
-        font-size: map-get($font-size, font-xl-3);
-      }
-    }
-  }
-  .action {
-    &-img {
-      width: 32px;
-      padding: 9px;
-    }
-
-    &-click {
-      font-size: map-get($font-size, font-sm);
-    }
-  }
-  .banner-policy {
-    display: none;
-  }
-
-  // Blogs
-  .section-blogs {
-    .blog {
-      &-item {
-        height: 225px;
-      }
-
-      &-item::before {
-        height: 225px;
-      }
-
-      &-item-1 {
-        margin-bottom: 8px;
-        background-image: url(../images/mobile-images/blog-1-mobile.png);
-      }
-
-      &-item-2 {
-        background-image: url(../images/mobile-images/blog-2-mobile.png);
-      }
-
-      &-item-3 {
-        background-image: url(../images/mobile-images/blog-3-mobile.png);
-      }
-
-      &-content {
-        padding: 0;
-        display: block;
-      }
-
-      &-title {
-        font-size: map-get($font-size, font-sm);
-        line-height: 21px;
-      }
-
-      &-link {
-        font-size: map-get($font-size, font-xxs-2);
-        padding: 3px 5px;
-      }
-    }
-
-    .badge-blog {
-      position: static;
-    }
-  }
-
-  //Product
-  .section-products {
-    margin: 0;
-  
-    .product {
-      &-header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 34px;
-  
-        &.header-link {
-          justify-content: space-between;
-        }
-      }
-      &-img {
-        position: relative;
-      } 
-  
-      &-img .badge {
-        position: absolute;
-        top: 24px;
-        left: 18px;
-      }
-  
-      &-content {
-        display: flex;
-        flex-direction: column;
-        margin-top: 15px;
-      }
-  
-      &-name {
-        font-size: map-get($font-size, font-md);
-        font-weight: 300;
-      }
-  
-      &-price {
-        display: flex;
-        justify-content: space-between;
-        font-weight: 400;
-        font-size: 20px;
-      }
-    }
-  }
-  
-  .product-price {
-    .sale {
-      color: var(--red);
-    }
-    .price-original {
-      color: var(--gray-md);
-    }
-  }
-  
-  .btn-show {
-    border: 1px solid #c4c4c4;
-  }
-
+.copyright {
+  padding: 24px 0;
 }
