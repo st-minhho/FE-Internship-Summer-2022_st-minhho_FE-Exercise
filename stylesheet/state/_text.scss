@@ -14,6 +14,9 @@
   }
 }
 
-.title{
-  font-weight: map-get($font-weight, font-w300 );
+.title {
+  font-weight: map-get($font-weight, font-w300);
+  font-size: map-get($font-size, font-xl-2);
+  line-height: 48px;
+  text-align: center;
 }
