@@ -54,7 +54,7 @@
   }
 }
 
-@media only screen and (max-width: 375px) {
+@include respond-to-mobile{
   .container {
     max-width: 327px;
   }

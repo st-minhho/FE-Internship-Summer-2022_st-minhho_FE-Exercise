@@ -13,14 +13,7 @@
       margin: 48px 0;
     }
   }
-
-  .image {
-    &-mobile {
-      display: none;
-    }
-  }
 }
-
 .menu {
   display: flex;
   justify-content: space-between;
@@ -52,7 +45,7 @@
   display: none;
 }
 
-@media only screen and (max-width: 375px) {
+@include respond-to-mobile {
   .section-header {
     .header {
       &-inner {
@@ -68,14 +61,10 @@
         color: map-get($color, "black");
       }
     }
-
-    .image {
-      &-mobile {
-        display: block;
-      }
-      &-desktop {
-        display: none;
-      }
+  }
+  .image-logo {
+    svg path {
+      fill: map-get($color, "black");
     }
   }
   .action {
