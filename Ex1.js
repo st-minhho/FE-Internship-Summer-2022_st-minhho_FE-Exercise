@@ -1,21 +1,21 @@
-const tab_link = document.querySelectorAll(".tab-link");
-const tab_content = document.querySelectorAll(".tab-content");
+const tabLink = document.querySelectorAll(".tab-link");
+const tabContent = document.querySelectorAll(".tab-content");
 function openTab() {
-  for (let i = 0; i < tab_link.length; i++) {
-    tab_link[i].onclick = function (e) {
-      for (let i = 0; i < tab_link.length; i++) {
-        if (tab_link[i].classList.contains("current")) {
-          tab_link[i].classList.remove("current");
+  for (let i = 0; i < tabLink.length; i++) {
+    tabLink[i].onclick = function (e) {
+      for (let i = 0; i < tabLink.length; i++) {
+        if (tabLink[i].classList.contains("current")) {
+          tabLink[i].classList.remove("current");
         }
       }
-      tab_link[i].classList.add("current");
-      var tab = document.getElementById(e.target.dataset.tab);
-      for (let j = 0; j < tab_content.length; j++) {
-        if (tab_content[j].classList.contains("current")) {
-          tab_content[j].classList.remove("current");
+      tabLink[i].classList.add("current");
+      let tabID = document.getElementById(e.target.dataset.tab);
+      for (let j = 0; j < tabContent.length; j++) {
+        if (tabContent[j].classList.contains("current")) {
+          tabContent[j].classList.remove("current");
         }
       }
-      tab.classList.add("current");
+      tabID.classList.add("current");
     };
   }
 }
