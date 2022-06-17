@@ -14,9 +14,13 @@ function removeClass() {
 function dropDown() {
   for (let i = 0; i < btnDrop.length; i++) {
     btnDrop[i].onclick = function (e) {
-      removeClass();
-      btnDrop[i].classList.toggle('active');
-      contentDrop[i].classList.toggle('show');
+      if (btnDrop[i].classList.contains('active')) {
+        removeClass();
+      } else {
+        removeClass();
+        btnDrop[i].classList.add('active');
+        contentDrop[i].classList.add('show');
+      }
     };
   }
 }
