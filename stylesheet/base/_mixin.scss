@@ -1,0 +1,7 @@
+$bp-mobile: 375px;
+
+@mixin respond-to-mobile() {
+  @media only screen and (max-width: $bp-mobile) {
+    @content;
+  }
+}

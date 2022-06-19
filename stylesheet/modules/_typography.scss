@@ -1,0 +1,28 @@
+.text {
+    &-primary {
+      color: map-get($color, primary-color);
+    }
+  
+    &-secondary {
+      font-weight: map-get($font-weight, font-w400);
+      color: map-get($color, "white");
+    }
+  
+    &-content-policy {
+      font-weight: map-get($font-weight, font-w400);
+      color: map-get($color, "gray");
+    }
+  }
+  
+  .title {
+    font-weight: map-get($font-weight, font-w300);
+    font-size: map-get($font-size, font-xl-2);
+    line-height: 48px;
+    text-align: center;
+  }
+  
+  @media only screen and (max-width: 375px) {
+    .title {
+      font-size: map-get($font-size, font-md-2);
+    }
+  }
