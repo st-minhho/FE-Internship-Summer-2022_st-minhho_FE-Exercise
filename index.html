@@ -15,7 +15,7 @@
     <div class="container">
       <div class="section-header">
         <div class="header-inner">
-          <a href="#" class="header-brand">
+          <a href="index.html" class="header-brand">
             <h1 class="brand">
               <div class="image-logo">
                 <img src="./images/logo.png" alt="Image Logo Brand" />
@@ -45,8 +45,9 @@
               </a>
             </li>
             <li class="action-item">
-              <a class="action-link" href="">
+              <a class="action-link" href="./cart.html">
                 <i class="fa fa-shopping-cart"></i>
+                <span class="total-cart"></span>
               </a>
             </li>
             <li class="action-item">
@@ -144,7 +145,7 @@
           <a class="btn btn-secondary btn-show" href="">Show More</a>
         </div>
         <ul class="row product-list">
-          <li class="col-3 product-item">
+          <!-- <li class="col-3 product-item">
             <div class="product-img">
               <img src="./images/image-product1.png" alt="Image product" />
               <div class="badge badge-primary">-30%</div>
@@ -189,7 +190,7 @@
                 <span class="price-sell">$119.99</span>
               </div>
             </div>
-          </li>
+          </li> -->
         </ul>
       </div>
     </section>
@@ -246,6 +247,10 @@
             <div class="product-img">
               <img src="./images/image-product1.png" alt="Image product" />
               <span class="badge badge-primary">-30%</span>
+
+              <div class="product-overlay">
+                <a href="#" class="btn btn-primary add-to-cart" >Add to cart</a>
+              </div>
             </div>
             <div class="product-content">
               <h4 class="product-name">T-Shirt Summer Vibes</h4>
@@ -384,6 +389,7 @@
       <p class="copyright">DESIGN BY ICEO.CO - © 2019. ALL RIGHTS RESERVED.</p>
     </div>
   </footer>
+  <script src="addToCart.js"></script>
 </body>
 
 </html>

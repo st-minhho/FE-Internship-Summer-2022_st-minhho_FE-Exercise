@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart Fashion Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="section-header">
+        <div class="header-inner">
+          <a href="index.html" class="header-brand">
+            <h1 class="brand">
+              <div class="image-logo">
+                <img src="./images/logo.png" alt="Image Logo Brand" />
+              </div>
+              <div class="image-brand">
+                <img src="./images/name-brand.png" alt="Image name Brand" />
+              </div>
+            </h1>
+          </a>
+          <nav class="nav-header">
+            <ul class="menu sub-menu-list">
+              <li class="sub-menu-item">
+                <a class="sub-menu-link text-primary" href="">Men</a>
+              </li>
+              <li class="sub-menu-item">
+                <a class="sub-menu-link text-primary" href="">Women</a>
+              </li>
+              <li class="sub-menu-item">
+                <a class="sub-menu-link text-primary" href="">Kids</a>
+              </li>
+            </ul>
+          </nav>
+          <ul class="menu action-list">
+            <li class="action-item">
+              <a class="action-link" href="">
+                <i class="fa fa-search"></i>
+              </a>
+            </li>
+            <li class="action-item">
+              <a class="action-link" href="">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="total-cart"></span>
+              </a>
+            </li>
+            <li class="action-item">
+              <a class="action-link" href="">
+                <i class="fa fa-user-o"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="section-cart">
+      <div class="container">
+        <div class="cart-list">
+          <table class="table">
+            <thead class="thead-primary">
+              <tr class="text-center">
+                <th>Action</th>
+                <th>Product</th>
+                <th>Product name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody class="product-cart-list">
+              <!-- product list -->
+            </tbody>
+          </table>
+        </div>
+        <!-- <div class="row justify-content-end">
+          <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+            <div class="cart-total mb-3">
+              <h3>Tổng giỏ hàng</h3>
+              <hr>
+              <p class="d-flex total-price">
+                <span>Tổng tiền thanh toán</span>
+                <span>950.000đ</span>
+              </p>
+            </div>
+            <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Thanh toán</a></p>
+          </div>
+        </div> -->
+      </div>
+    </section>
+  </main>
+  <footer class="section-footer text-secondary">
+    <div class="container footer">
+      <div class="footer-top">
+        <div class="footer-left">
+          <div class="footer-description">
+            <a class="footer-link" href="">
+              <img src="./images/logo.png" alt="Image footer" />
+              <img src="./images/name-brand.png" alt="Image footer" />
+            </a>
+            <p class="link-content">House My Brand designs clothing for the young, the old &everyone in between – but
+              most importantly, for the fashionable</p>
+          </div>
+          <ul class="social-list">
+            <li class="social-item">
+              <a class="social-link" href="">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li class="social-item">
+              <a class="social-link" href="">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li class="social-item">
+              <a class="social-link" href="">
+                <i class="fa fa-linkedin"></i>
+              </a>
+            </li>
+            <li class="social-item">
+              <a class="social-link" href="">
+                <i class="fa fa-instagram"></i>
+              </a>
+            </li>
+            <li class="social-item">
+              <a class="social-link" href="">
+                <i class="fa fa-youtube-play"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <ul class="footer-right">
+          <li class="footer-item">
+            <ul class="item-list">
+              <li class="sub-item item-title">Shopping online</li>
+              <li class="sub-item">Order Status</li>
+              <li class="sub-item">Shipping and Delivery</li>
+              <li class="sub-item">Returns</li>
+              <li class="sub-item">Payment Options</li>
+              <li class="sub-item">Contact Us</li>
+            </ul>
+          </li>
+          <li class="footer-item">
+            <ul class="item-list">
+              <li class="sub-item item-title">Information</li>
+              <li class="sub-item">Gift Cards</li>
+              <li class="sub-item">Find a store</li>
+              <li class="sub-item">Newsletter</li>
+              <li class="sub-item">Bacome a member</li>
+              <li class="sub-item">Site feedback</li>
+            </ul>
+          </li>
+          <li class="footer-item">
+            <ul class="item-list">
+              <li class="sub-item item-title">Contact</li>
+              <li class="sub-item">store@uikit.com</li>
+              <li class="sub-item">Hotline: +1 131 138 138</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="copyright">DESIGN BY ICEO.CO - © 2019. ALL RIGHTS RESERVED.</p>
+    </div>
+  </footer>
+</body>
+<script src="./cart.js"></script>
+
+</html>

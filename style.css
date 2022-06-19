@@ -37,6 +37,7 @@ body {
 
 a {
   text-decoration: none;
+  color: var(--black);
 }
 
 input {
@@ -56,6 +57,33 @@ input:focus-visible {
   outline: none;
 }
 
+img{
+  width: auto;
+  display: block;
+}
+table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.table .thead-primary {
+  background-color: var(--primary-color);
+}
+
+.table .thead-primary tr th {
+  padding: 20px 10px;
+  color: var(--white);
+  border: 1px solid transparent;
+}
+
+.table tbody tr td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px 0;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--gray);
+}
 .container {
   margin: 0 auto;
   width: 100%;
@@ -404,8 +432,15 @@ input:focus-visible {
   border: 1px solid #c4c4c4;
 }
 
+
 .product-img {
   position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.product-img:hover .product-overlay{
+  display: block;
 }
 
 .product-img .badge {
@@ -425,6 +460,11 @@ input:focus-visible {
   font-weight: 300;
 }
 
+.product-overlay{
+  display: none;
+  position: absolute;
+  bottom: 30px;
+}
 .product-price {
   display: flex;
   justify-content: space-between;
