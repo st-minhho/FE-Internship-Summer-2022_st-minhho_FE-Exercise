@@ -93,7 +93,7 @@ table {
 .row {
   display: flex;
   flex-wrap: wrap;
-  max-width: 0 -10px;
+  margin: 0 -10px;
 }
 
 .row > [class*="col-"] {

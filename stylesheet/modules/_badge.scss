@@ -1,0 +1,22 @@
+.badge {
+  width: 60px;
+  padding: 6px 0;
+  border-radius: 20px;
+  font-size: map-get($font-size, font-xxs);
+  text-align: center;
+
+  &-primary {
+    background-color: map-get($color, secondary-color);
+    color: map-get($color, "white");
+  }
+}
+
+
+@include respond-to-mobile{
+  .badge {
+    width: 32px;
+    padding: 2px 0;
+    border-radius: 9px;
+    font-size: map-get($font-size, font-xxs-3);
+  }
+}
