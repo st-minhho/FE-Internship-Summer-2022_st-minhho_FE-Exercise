@@ -1,38 +1,44 @@
-const productTableList = document.querySelector('.product-cart-list');
-const totalCount = document.querySelector('.total-cart');
-var total = 0;
-var subTotal = 0;
-var sum = 0;
+var productTableList = document.querySelector('.product-cart-list');
+var totalCount = document.querySelector('.total-cart');
+var listKey = {
+  product: 'product',
+  cart: 'cart',
+  cartTotal: 'totalCart',
+};
+function getLocal(key) {
+  return localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)) : [];
+}
+
+function setLocal(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
 eventListeners();
+
 function eventListeners() {
-  window.addEventListener('DOMContentLoaded', () => {
-    renderData();
-    renderTotalCart();
-  });
-  productTableList.addEventListener('click', increaseQuantity);
-  productTableList.addEventListener('click', reduceQuantity);
-  productTableList.addEventListener('click', delProduct);
+  renderData();
+  renderTotalCart();
 }
 
 function renderData() {
-  var productList = localStorage.getItem('cart');
-  if (productList) {
-    productInCart = JSON.parse(productList);
-    
+  var productInCart = getLocal(listKey.cart);
+  var total = 0;
+  var subTotal = 0;
+  var sum = 0;
+  if (productInCart) {
     Object.keys(productInCart).map((key, value) => {
       var html = '';
       var price = productInCart[key]['price'].slice(1);
       var qty = productInCart[key]['qty'];
-      sum = price * qty;
+      sum = +price * +qty;
       subTotal = sum.toFixed(2);
-      total += parseFloat(subTotal);
-
+      total += +subTotal;
       html += `
         <tr class="product-item">
           <td class="product-remove">
-            <a class="remove-link" href="#">
+            <button data-id="${key}" class="btn btn-primary remove-link" href="#">
               <i class="fa fa-times" aria-hidden="true"></i>
-            </a>
+            </button>
           </td>
           <td class="image-prod">
             <div class="product-img">
@@ -41,14 +47,13 @@ function renderData() {
           </td>
           <td class="product-name">
             <h4>${productInCart[key]['name']}</h4>
-            <span class="product-id">${key}<span>
           </td>
           <td class="price">${productInCart[key]['price']}</td>
           <td class="quantity">
             <div class="cart_quantity_button">
-              <a class="cart-quantity-up" href="#"> + </a>
+              <button data-id="${key}" class="btn btn-primary cart-quantity-up" href="#"> + </button>
               <input class="cart_quantity_input" type="text" name="quantity" value="${productInCart[key]['qty']}">
-              <a class="cart-quantity-down" href="#"> - </a>
+              <button data-id="${key}" class="btn btn-primary cart-quantity-down" href="#"> - </button>
             </div>
           </td>
           <td class="total">$${subTotal}</td>
@@ -57,116 +62,115 @@ function renderData() {
       productTableList.innerHTML += html;
     });
     document.getElementById('price-total').innerHTML = '$' + total;
+
+    var btnUpdateQuantity = document.querySelectorAll('.cart_quantity_button button');
+    for (let i = 0; i < btnUpdateQuantity.length; i++) {
+      btnUpdateQuantity[i].addEventListener('click', updateQuantity);
+    }
+
+    var btnDeleteProduct = document.querySelectorAll('.remove-link');
+    for (let i = 0; i < btnDeleteProduct.length; i++) {
+      btnDeleteProduct[i].addEventListener('click', delProduct);
+    }
   }
 }
 
-function renderTotalCart() {
-  var cartTotal = JSON.parse(localStorage.getItem('cartTotal'));
-  totalCount.innerHTML = cartTotal;
-}
-function totalCart() {
-  var cartTotal = 0;
-  var productList = localStorage.getItem('cart');
-  if (productList) {
-    productItem = JSON.parse(productList);
-    Object.keys(productItem).map((key, value) => {
-      cartTotal += productItem[key]['qty'];
-    });
-  }
-  localStorage.setItem('cartTotal', JSON.stringify(cartTotal));
-  totalCount.innerHTML = cartTotal;
-}
-
-function increaseQuantity(e) {
+function updateQuantity(e) {
+  var productID = e.target.dataset.id;
+  var cartItem = e.target.parentElement.parentElement.parentElement;
+  var mess = 0;
   if (e.target.classList.contains('cart-quantity-up')) {
-    var product = e.target.parentElement.parentElement.parentElement;
-    var getID = product.querySelector('.product-id').innerText;
-    var getQty = product.querySelector('.cart_quantity_input').getAttribute('value');
-    var getPrice = product.querySelector('.price').textContent.slice(1);
+    mess = 1;
+  } else {
+    mess = -1;
   }
+  handleQuantity(mess, productID, cartItem);
+}
 
-  getQty = parseInt(getQty) + 1;
-  sum = getQty * parseFloat(getPrice);
-  subTotal = sum.toFixed(2);
+function handleQuantity(mess, productID, cartItem) {
+  var productHandle = getLocal(listKey.cart);
+  var getQty = cartItem.querySelector('.cart_quantity_input').getAttribute('value');
+  var getPrice = cartItem.querySelector('.price').textContent.slice(1);
 
-  total = document.getElementById('price-total').textContent.slice(1);
-  total = parseFloat(total) + parseFloat(getPrice);
-  console.log(total)
-  document.getElementById('price-total').innerHTML = '$' + total;
-  console.log(document.getElementById('price-total').innerHTML)
-  var productList = localStorage.getItem('cart');
-  if (productList) {
-    var productItem = JSON.parse(productList);
-    Object.keys(productItem).map((key, value) => {
-      if (key === getID) {
-        productItem[key]['qty']++;
-        product.querySelector('.cart_quantity_input').setAttribute('value', productItem[key]['qty']);
-        product.querySelector('.total').innerHTML = '$' + subTotal;
+  if (mess === 1) {
+    getQty = parseInt(getQty) + 1;
+    sum = getQty * parseFloat(getPrice);
+    subTotal = sum.toFixed(2);
+    Object.keys(productHandle).map((key, value) => {
+      if (key === productID) {
+        productHandle[key]['qty']++;
+        cartItem.querySelector('.cart_quantity_input').setAttribute('value', productHandle[key]['qty']);
+        cartItem.querySelector('.total').innerHTML = '$' + subTotal;
       }
     });
-  }
-  localStorage.setItem('cart', JSON.stringify(productItem));
-  totalCart();
-}
-
-function reduceQuantity(e) {
-  if (e.target.classList.contains('cart-quantity-down')) {
-    var product = e.target.parentElement.parentElement.parentElement;
-    var getID = product.querySelector('.product-id').innerText;
-    var getQty = product
-      .querySelector('.cart_quantity_input')
-      .getAttribute('value');
-    var getPrice = product.querySelector('.price').textContent.slice(1);
-  }
-
-  if (getQty > 1) {
+  } else {
     getQty = parseInt(getQty) - 1;
     sum = getQty * parseFloat(getPrice);
     subTotal = sum.toFixed(2);
-    product.querySelector('.total').innerHTML = '$' + subTotal;
-  }
-
-  total = document.getElementById('price-total').textContent.slice(1);
-  console.log(total)
-  total = parseFloat(total) - parseFloat(getPrice);
-  document.getElementById('price-total').innerHTML = '$' + total;
-
-  var productList = localStorage.getItem('cart');
-  if (productList) {
-    var productItem = JSON.parse(productList);
-    Object.keys(productItem).map((key, value) => {
-      if (key === getID) {
-        if (productItem[key]['qty'] > 1) {
-          productItem[key]['qty']--;
-          product.querySelector('.cart_quantity_input').setAttribute('value', productItem[key]['qty']);
+    Object.keys(productHandle).map((key, value) => {
+      if (key === productID) {
+        if (productHandle[key]['qty'] > 1) {
+          productHandle[key]['qty']--;
+          cartItem.querySelector('.cart_quantity_input').setAttribute('value', productHandle[key]['qty']);
+          cartItem.querySelector('.total').innerHTML = '$' + subTotal;
         } else {
-          delete productItem[key];
-          product.parentNode.removeChild(product);
+          delete productHandle[key];
+          cartItem.parentNode.removeChild(cartItem);
         }
       }
     });
   }
-  localStorage.setItem('cart', JSON.stringify(productItem));
+  setLocal(listKey.cart, productHandle);
   totalCart();
+  countCart();
+}
+
+function renderTotalCart() {
+  var cartTotal = getLocal(listKey.cartTotal);
+  totalCount.innerHTML = cartTotal;
+}
+
+function totalCart() {
+  var sumQtyCart = 0;
+  var countCart = getLocal(listKey.cart);
+  if (countCart) {
+    Object.keys(countCart).map((key, value) => {
+      sumQtyCart += countCart[key]['qty'];
+    });
+  }
+  setLocal(listKey.cartTotal, sumQtyCart);
+  totalCount.innerHTML = sumQtyCart;
 }
 
 function delProduct(e) {
   if (e.target.classList.contains('remove-link')) {
     var product = e.target.parentElement.parentElement;
-    var getID = product.querySelector('.product-id').innerText;
+    var getID = e.target.dataset.id;
   }
-  var productList = localStorage.getItem('cart');
-  if (productList) {
-    var productItem = JSON.parse(productList);
-    Object.keys(productItem).map((key, value) => {
+  var productData = getLocal(listKey.cart);
+  if (productData) {
+    Object.keys(productData).map((key, value) => {
       if (key === getID) {
-        delete productItem[key];
+        delete productData[key];
         product.parentNode.removeChild(product);
       }
     });
   }
-  localStorage.setItem('cart', JSON.stringify(productItem));
+  setLocal(listKey.cart, productData);
   totalCart();
+  countCart();
 }
 
-
+function countCart() {
+  var sumCart = 0;
+  var productList = getLocal(listKey.cart);
+  if (productList) {
+    Object.keys(productList).map((key, value) => {
+      var quantity = productList[key]['qty'];
+      var price = productList[key]['price'].slice(1);
+      subTotal = +quantity * +price;
+      sumCart += +subTotal.toFixed(2);
+    });
+    document.getElementById('price-total').innerHTML = '$' + sumCart.toFixed(2);
+  }
+}

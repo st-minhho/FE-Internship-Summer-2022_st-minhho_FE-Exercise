@@ -1,9 +1,14 @@
-const product = document.querySelector('.product-list');
-const totalCount = document.querySelector('.total-cart');
-var productList = {};
-var productItem = {};
+var product = document.querySelector('.product-list');
+var totalCount = document.querySelector('.total-cart');
+var cartList = {}
+var productItem = {}
 var cartQty = 0;
-const productData = [
+var listKey = {
+  product: 'product',
+  cart: 'cart',
+  cartTotal: 'totalCart',
+};
+var productData = [
   {
     id: 'pd1',
     name: 'T-Shirt Summer Vibes',
@@ -29,71 +34,76 @@ const productData = [
     imgSrc: './images/image-product4.png',
   },
 ];
-localStorage.setItem('product', JSON.stringify(productData));
 
 eventListeners();
 function eventListeners() {
-  window.addEventListener('DOMContentLoaded', () => {
-    renderData();
-    renderTotalCart();
-  });
+  setLocal(listKey.product, productData);
+  renderData();
+  renderTotalCart();
+}
 
-  product.addEventListener('click', addToLocal);
+function getLocal(key) {
+  return localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)) : [];
+}
+
+function setLocal(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
 }
 
 function renderData() {
-  var data = localStorage.getItem('product');
-  if (data) {
-    var productData = JSON.parse(data);
+  var productData = getLocal(listKey.product);
+  if (productData) {
     var html = '';
-    Object.keys(productData).map((key, value) => {
+    productData.forEach((data) => {
       html += `
-          <li class="col-3 product-item">
-            <div class="product-img">
-              <img id="${productData[key]['id']}" src="${productData[key]['imgSrc']}" alt="Image product" />
-              <div class="product-overlay">
-                  <a href="#" class="btn btn-primary add-to-cart" >Add to cart</a>
-                </div>
-            </div>
-            <div class="product-content">
-              <h4 class="product-name">${productData[key]['name']}</h4>
-              <div class="product-price">
-                <span class="price-sell">$${productData[key]['price']}</span>
-              </div>
-            </div>
-          </li>
-        `;
+      <li class="col-3 product-item">
+        <div class="product-img">
+          <img src="${data.imgSrc}" alt="Image product" />
+          <div class="product-overlay">
+            <button data-id="${data.id}" class="btn btn-primary add-to-cart" >Add to cart</button>
+          </div>
+        </div>
+        <div class="product-content">
+          <h4 class="product-name">${data.name}</h4>
+          <div class="product-price">
+            <span class="price-sell">$${data.price}</span>
+          </div>
+        </div>
+      </li>
+    `;
     });
-    product.innerHTML = html;
+  }
+  product.innerHTML = html;
+
+  var btnAddToCart = document.querySelectorAll('.add-to-cart');
+  for (var i = 0; i < btnAddToCart.length; i++) {
+    btnAddToCart[i].addEventListener('click', addToCart);
   }
 }
-function renderTotalCart() {
-  var cartTotal = JSON.parse(localStorage.getItem('cartTotal'));
-  totalCount.innerHTML = cartTotal;
-}
 
-function addToLocal(e) {
-  //get product information
-  if (e.target.classList.contains('add-to-cart')) {
-    var product = e.target.parentElement.parentElement.parentElement;
-    var getID = product.querySelector('.product-img img').getAttribute('id');
-    var getName = product.querySelector('.product-name').textContent;
-    var getImgSrc = product.querySelector('.product-img img').getAttribute('src');
-    var getPrice = product.querySelector('.price-sell').textContent;
-    var getQty = 1;
-  }
 
-  productList = localStorage.getItem('cart');
-  if (productList) {
-    productItem = JSON.parse(productList);
+//get product information
+function addToCart(e) {
+  var cartData = getLocal(listKey.product)
+  var product = e.target.parentElement.parentElement.parentElement;
+  var getID = e.target.dataset.id;
+  var getName = product.querySelector('.product-name').textContent;
+  var getImgSrc = product.querySelector('.product-img img').getAttribute('src');
+  var getPrice = product.querySelector('.price-sell').textContent;
+  var getQty = 1;
 
+  cartList = localStorage.getItem('cart');
+
+  if (cartList) {
+    productItem = JSON.parse(cartList);
     Object.keys(productItem).map((key, value) => {
-      if (key == getID) {
+      if (key === getID) {
         getQty = productItem[key]['qty'] + 1;
+        
       }
     });
+    
   }
-
   productItem[getID] = {
     name: getName,
     imgSrc: getImgSrc,
@@ -101,19 +111,23 @@ function addToLocal(e) {
     qty: getQty,
   };
 
-  localStorage.setItem('cart', JSON.stringify(productItem));
+  setLocal(listKey.cart, productItem);
   totalCart();
 }
 
+function renderTotalCart() {
+  var cartTotal = getLocal(listKey.cartTotal);
+  totalCount.innerHTML = cartTotal;
+}
+
 function totalCart() {
-  var cartTotal = 0;
-  productList = localStorage.getItem('cart');
-  if (productList) {
-    productItem = JSON.parse(productList);
-    Object.keys(productItem).map((key, value) => {
-      cartTotal += productItem[key]['qty'];
+  var sumQtyCart = 0;
+  var countCart = getLocal(listKey.cart);
+  if (countCart) {
+    Object.keys(countCart).map((key, value) => {
+      sumQtyCart += countCart[key]['qty'];
     });
   }
-  localStorage.setItem('cartTotal', JSON.stringify(cartTotal));
-  totalCount.innerHTML = cartTotal;
+  setLocal(listKey.cartTotal, sumQtyCart);
+  totalCount.innerHTML = sumQtyCart;
 }

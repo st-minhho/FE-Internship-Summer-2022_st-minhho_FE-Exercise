@@ -401,9 +401,7 @@ header {
 }
 
 .product-remove .remove-link {
-  padding: 4px 10px;
-  color: #a8a8a8;
-  background-color: #f6f6f6;
+  padding: 15px;
 }
 
 .product-img {
@@ -419,6 +417,8 @@ header {
 
 .cart_quantity_button {
   display: flex;
+  display: flex;
+  justify-content: center;
 }
 
 .cart_quantity_button a {
