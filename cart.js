@@ -1,4 +1,5 @@
 var productTableList = document.querySelector('.product-cart-list');
+
 var totalCount = document.querySelector('.total-cart');
 var listKey = {
   product: 'product',
@@ -20,40 +21,58 @@ function eventListeners() {
   renderTotalCart();
 }
 
+
+function renderTotalCart() {
+  var cartTotal = getLocal(listKey.cartTotal);
+  totalCount.innerHTML = cartTotal;
+}
+
+function totalCart() {
+  var sumQtyCart = 0;
+  var countCart = getLocal(listKey.cart);
+  if (countCart) {
+    Object.keys(countCart).map((key, value) => {
+      sumQtyCart += countCart[key]['qty'];
+    });
+  }
+  setLocal(listKey.cartTotal, sumQtyCart);
+  totalCount.innerHTML = sumQtyCart;
+}
+
 function renderData() {
   var productInCart = getLocal(listKey.cart);
   var total = 0;
   var subTotal = 0;
   var sum = 0;
   if (productInCart) {
-    Object.keys(productInCart).map((key, value) => {
+    productInCart.forEach((data) => {
       var html = '';
-      var price = productInCart[key]['price'].slice(1);
-      var qty = productInCart[key]['qty'];
+      var price = data.price;
+      var qty = data.qty;
       sum = +price * +qty;
       subTotal = sum.toFixed(2);
       total += +subTotal;
       html += `
         <tr class="product-item">
           <td class="product-remove">
-            <button data-id="${key}" class="btn btn-primary remove-link" href="#">
+            <button data-id="${data.id}" class="btn btn-primary remove-link" href="#">
               <i class="fa fa-times" aria-hidden="true"></i>
             </button>
           </td>
           <td class="image-prod">
             <div class="product-img">
-              <img src="${productInCart[key]['imgSrc']}" alt="">
+              <img src="${data.imgSrc}" alt="">
             </div>
           </td>
           <td class="product-name">
-            <h4>${productInCart[key]['name']}</h4>
+            <h4>${data.name}</h4>
           </td>
-          <td class="price">${productInCart[key]['price']}</td>
+          <td class="price">${data.price}</td>
           <td class="quantity">
             <div class="cart_quantity_button">
-              <button data-id="${key}" class="btn btn-primary cart-quantity-up" href="#"> + </button>
-              <input class="cart_quantity_input" type="text" name="quantity" value="${productInCart[key]['qty']}">
-              <button data-id="${key}" class="btn btn-primary cart-quantity-down" href="#"> - </button>
+              <button data-id="${data.id}" class="btn btn-primary cart-quantity-up" href="#"> + </button>
+              <input class="cart_quantity_input" type="text" name="quantity" value="${data.qty}">
+              <button data-id="${data.id}" class="btn btn-primary cart-quantity-down" href="#"> - </button>
             </div>
           </td>
           <td class="total">$${subTotal}</td>
@@ -77,86 +96,71 @@ function renderData() {
 
 function updateQuantity(e) {
   var productID = e.target.dataset.id;
-  var cartItem = e.target.parentElement.parentElement.parentElement;
   var mess = 0;
   if (e.target.classList.contains('cart-quantity-up')) {
     mess = 1;
   } else {
     mess = -1;
   }
-  handleQuantity(mess, productID, cartItem);
+  handleQuantity(mess, productID);
 }
 
-function handleQuantity(mess, productID, cartItem) {
-  var productHandle = getLocal(listKey.cart);
-  var getQty = cartItem.querySelector('.cart_quantity_input').getAttribute('value');
-  var getPrice = cartItem.querySelector('.price').textContent.slice(1);
-
+function handleQuantity(mess, productID) {
+  var productInCart = getLocal(listKey.cart);
+  var index = productInCart.findIndex((obj) => obj.id === productID);
+  var cart = productInCart.find(obj => obj.id === productID);
+  var getQty = 0;
+  var subTotal = 0;
+  var sum = 0;
   if (mess === 1) {
-    getQty = parseInt(getQty) + 1;
-    sum = getQty * parseFloat(getPrice);
+    getQty = parseInt(cart.qty) + 1;
+    sum = getQty * parseFloat(cart.price);
     subTotal = sum.toFixed(2);
-    Object.keys(productHandle).map((key, value) => {
-      if (key === productID) {
-        productHandle[key]['qty']++;
-        cartItem.querySelector('.cart_quantity_input').setAttribute('value', productHandle[key]['qty']);
-        cartItem.querySelector('.total').innerHTML = '$' + subTotal;
+    productInCart.map((data) => {
+      if (data.id === productID) {
+        data.qty++;
+        productTableList.children[index].querySelector('.cart_quantity_input').setAttribute('value', productInCart[index].qty);
+        productTableList.children[index].querySelector('.total').innerHTML = '$' + subTotal;
       }
     });
   } else {
-    getQty = parseInt(getQty) - 1;
-    sum = getQty * parseFloat(getPrice);
+    getQty = parseInt(cart.qty) - 1;
+    sum = getQty * parseFloat(cart.price);
     subTotal = sum.toFixed(2);
-    Object.keys(productHandle).map((key, value) => {
-      if (key === productID) {
-        if (productHandle[key]['qty'] > 1) {
-          productHandle[key]['qty']--;
-          cartItem.querySelector('.cart_quantity_input').setAttribute('value', productHandle[key]['qty']);
-          cartItem.querySelector('.total').innerHTML = '$' + subTotal;
+    productInCart.map((data) => {
+      if (data.id === productID) {
+        if (data.qty > 1) {
+          data.qty--;
+          productTableList.children[index].querySelector('.cart_quantity_input').setAttribute('value', productInCart[index].qty);
+          productTableList.children[index].querySelector('.total').innerHTML = '$' + subTotal;
         } else {
-          delete productHandle[key];
-          cartItem.parentNode.removeChild(cartItem);
+          productInCart.splice(data,1);
+          productTableList.children[index].remove();
         }
       }
     });
   }
-  setLocal(listKey.cart, productHandle);
+  setLocal(listKey.cart, productInCart);
   totalCart();
   countCart();
 }
 
-function renderTotalCart() {
-  var cartTotal = getLocal(listKey.cartTotal);
-  totalCount.innerHTML = cartTotal;
-}
-
-function totalCart() {
-  var sumQtyCart = 0;
-  var countCart = getLocal(listKey.cart);
-  if (countCart) {
-    Object.keys(countCart).map((key, value) => {
-      sumQtyCart += countCart[key]['qty'];
-    });
-  }
-  setLocal(listKey.cartTotal, sumQtyCart);
-  totalCount.innerHTML = sumQtyCart;
-}
-
 function delProduct(e) {
   if (e.target.classList.contains('remove-link')) {
-    var product = e.target.parentElement.parentElement;
-    var getID = e.target.dataset.id;
   }
-  var productData = getLocal(listKey.cart);
-  if (productData) {
-    Object.keys(productData).map((key, value) => {
-      if (key === getID) {
-        delete productData[key];
-        product.parentNode.removeChild(product);
-      }
-    });
+  var productInCart = getLocal(listKey.cart);
+  var index = productInCart.findIndex((obj) => obj.id === productID);
+  var productID = e.target.dataset.id;
+    if (productInCart) {
+      productInCart.map((data) => {
+        if (data.id === productID) {
+          productInCart.splice(data,1);
+          productTableList.children[index].remove();
+        }
+      });
+    
   }
-  setLocal(listKey.cart, productData);
+  setLocal(listKey.cart, productInCart);
   totalCart();
   countCart();
 }

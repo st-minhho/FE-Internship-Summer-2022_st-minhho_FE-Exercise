@@ -26,8 +26,7 @@ listProduct.innerHTML += `<li class="col-3 product-item">
 <div class="product-content">
   <h4 class="product-name">T-Shirt Summer Vibes</h4>
   <div class="product-price">
-    <span class="price-sell sale">$89.99</span>
-    <span class="price-original">$119.99</span>
+
   </div>
 </div>
 </li>`
