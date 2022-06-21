@@ -1,10 +1,10 @@
-var productTableList = document.querySelector('.product-cart-list');
+var productTableList = document.querySelector(".product-cart-list");
 
-var totalCount = document.querySelector('.total-cart');
+var totalCount = document.querySelector(".total-cart");
 var listKey = {
-  product: 'product',
-  cart: 'cart',
-  cartTotal: 'totalCart',
+  product: "product",
+  cart: "cart",
+  cartTotal: "totalCart",
 };
 function getLocal(key) {
   return localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)) : [];
@@ -21,7 +21,6 @@ function eventListeners() {
   renderTotalCart();
 }
 
-
 function renderTotalCart() {
   var cartTotal = getLocal(listKey.cartTotal);
   totalCount.innerHTML = cartTotal;
@@ -32,7 +31,7 @@ function totalCart() {
   var countCart = getLocal(listKey.cart);
   if (countCart) {
     Object.keys(countCart).map((key, value) => {
-      sumQtyCart += countCart[key]['qty'];
+      sumQtyCart += countCart[key]["qty"];
     });
   }
   setLocal(listKey.cartTotal, sumQtyCart);
@@ -46,7 +45,7 @@ function renderData() {
   var sum = 0;
   if (productInCart) {
     productInCart.forEach((data) => {
-      var html = '';
+      var html = "";
       var price = data.price;
       var qty = data.qty;
       sum = +price * +qty;
@@ -80,16 +79,18 @@ function renderData() {
       `;
       productTableList.innerHTML += html;
     });
-    document.getElementById('price-total').innerHTML = '$' + total;
+    document.getElementById("price-total").innerHTML = "$" + total;
 
-    var btnUpdateQuantity = document.querySelectorAll('.cart_quantity_button button');
+    var btnUpdateQuantity = document.querySelectorAll(
+      ".cart_quantity_button button"
+    );
     for (let i = 0; i < btnUpdateQuantity.length; i++) {
-      btnUpdateQuantity[i].addEventListener('click', updateQuantity);
+      btnUpdateQuantity[i].addEventListener("click", updateQuantity);
     }
 
-    var btnDeleteProduct = document.querySelectorAll('.remove-link');
+    var btnDeleteProduct = document.querySelectorAll(".remove-link");
     for (let i = 0; i < btnDeleteProduct.length; i++) {
-      btnDeleteProduct[i].addEventListener('click', delProduct);
+      btnDeleteProduct[i].addEventListener("click", delProduct);
     }
   }
 }
@@ -97,7 +98,7 @@ function renderData() {
 function updateQuantity(e) {
   var productID = e.target.dataset.id;
   var mess = 0;
-  if (e.target.classList.contains('cart-quantity-up')) {
+  if (e.target.classList.contains("cart-quantity-up")) {
     mess = 1;
   } else {
     mess = -1;
@@ -106,61 +107,69 @@ function updateQuantity(e) {
 }
 
 function handleQuantity(mess, productID) {
-  var productInCart = getLocal(listKey.cart);
-  var index = productInCart.findIndex((obj) => obj.id === productID);
-  var cart = productInCart.find(obj => obj.id === productID);
+  var productInCart2 = getLocal(listKey.cart);
+  var index = productInCart2.findIndex((obj) => obj.id === productID);
+  console.log("1111", productInCart2);
+  var cart = productInCart2.find((obj) => obj.id === productID);
+  //console.log('ccc',cart)
   var getQty = 0;
   var subTotal = 0;
   var sum = 0;
   if (mess === 1) {
+    console.log("addddd", cart);
     getQty = parseInt(cart.qty) + 1;
     sum = getQty * parseFloat(cart.price);
     subTotal = sum.toFixed(2);
-    productInCart.map((data) => {
+    productInCart2.map((data) => {
       if (data.id === productID) {
         data.qty++;
-        productTableList.children[index].querySelector('.cart_quantity_input').setAttribute('value', productInCart[index].qty);
-        productTableList.children[index].querySelector('.total').innerHTML = '$' + subTotal;
+        productTableList.children[index]
+          .querySelector(".cart_quantity_input")
+          .setAttribute("value", productInCart2[index].qty);
+        productTableList.children[index].querySelector(".total").innerHTML =
+          "$" + subTotal;
       }
     });
   } else {
+    console.log("minussss", cart);
     getQty = parseInt(cart.qty) - 1;
     sum = getQty * parseFloat(cart.price);
     subTotal = sum.toFixed(2);
-    productInCart.map((data) => {
+    productInCart2.map((data) => {
       if (data.id === productID) {
         if (data.qty > 1) {
           data.qty--;
-          productTableList.children[index].querySelector('.cart_quantity_input').setAttribute('value', productInCart[index].qty);
-          productTableList.children[index].querySelector('.total').innerHTML = '$' + subTotal;
+          productTableList.children[index]
+            .querySelector(".cart_quantity_input")
+            .setAttribute("value", productInCart2[index].qty);
+          productTableList.children[index].querySelector(".total").innerHTML =
+            "$" + subTotal;
         } else {
-          productInCart.splice(data,1);
-          productTableList.children[index].remove();
+          productInCart2.splice(data, 1);
+          productTableList.removeChild(productTableList.children[index]);
         }
       }
     });
   }
-  setLocal(listKey.cart, productInCart);
+  setLocal(listKey.cart, productInCart2);
   totalCart();
   countCart();
 }
 
 function delProduct(e) {
-  if (e.target.classList.contains('remove-link')) {
-  }
+  var productID = e.target.dataset.id;
   var productInCart = getLocal(listKey.cart);
   var index = productInCart.findIndex((obj) => obj.id === productID);
-  var productID = e.target.dataset.id;
-    if (productInCart) {
-      productInCart.map((data) => {
-        if (data.id === productID) {
-          productInCart.splice(data,1);
-          productTableList.children[index].remove();
-        }
-      });
-    
-  }
+  productInCart.splice(
+    productInCart.findIndex(function (i) {
+      return i.id === productID;
+    }),
+    1
+  );
+  productTableList.removeChild(productTableList.children[index]);
+  console.log(productInCart);
   setLocal(listKey.cart, productInCart);
+  console.log("delete", productInCart);
   totalCart();
   countCart();
 }
@@ -169,12 +178,12 @@ function countCart() {
   var sumCart = 0;
   var productList = getLocal(listKey.cart);
   if (productList) {
-    Object.keys(productList).map((key, value) => {
-      var quantity = productList[key]['qty'];
-      var price = productList[key]['price'].slice(1);
+    productList.map((data) => {
+      var quantity = data.qty;
+      var price = data.price;
       subTotal = +quantity * +price;
       sumCart += +subTotal.toFixed(2);
     });
-    document.getElementById('price-total').innerHTML = '$' + sumCart.toFixed(2);
+    document.getElementById("price-total").innerHTML = "$" + sumCart.toFixed(2);
   }
 }
