@@ -165,7 +165,7 @@
   /* --product-- */
   .section-products {
     display: flex;
-    padding: 48px 0;
+    margin-bottom: 48px;
 
     .product {
       &-header {
@@ -181,9 +181,15 @@
 
       &-img {
         position: relative;
-        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
       }
 
+      &-overlay {
+        display: none;
+        position: absolute;
+        bottom: 30px;
+      }
       &-img .badge {
         position: absolute;
         top: 24px;
@@ -193,6 +199,7 @@
       &-content {
         display: flex;
         flex-direction: column;
+        margin-top: 15px;
       }
 
       &-name {
@@ -208,7 +215,9 @@
       }
     }
   }
-
+  .product-img:hover .product-overlay {
+    display: block;
+  }
   .product-price {
     .sale {
       color: map-get($color, secondary-color);
