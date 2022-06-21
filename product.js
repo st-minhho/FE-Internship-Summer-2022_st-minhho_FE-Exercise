@@ -41,24 +41,40 @@ var cartQty = 0;
 // ];
 eventListeners();
 function eventListeners() {
-    (0, index_js_1.setLocal)(index_js_2.listKey.product, index_js_2.productData);
-    renderData();
-    //renderTotalCart();
+  (0, index_js_1.setLocal)(index_js_2.listKey.product, index_js_2.productData);
+  renderData();
+  //renderTotalCart();
 }
 exports.eventListeners = eventListeners;
 function renderData() {
-    var productData = (0, index_js_1.getLocal)(index_js_2.listKey.product);
-    var html = "";
-    if (productData) {
-        productData.map(function (data) {
-            html += "\n      <li class=\"col-3 product-item\">\n        <div class=\"product-img\">\n          <img src=\"".concat(data.imgSrc, "\" alt=\"Image product\" />\n          <div class=\"product-overlay\">\n            <button data-id=\"").concat(data.id, "\" class=\"btn btn-primary add-to-cart\" >Add to cart</button>\n          </div>\n        </div>\n        <div class=\"product-content\">\n          <h4 class=\"product-name\">").concat(data.name, "</h4>\n          <div class=\"product-price\">\n            <span class=\"price-sell\">$").concat(data.price, "</span>\n          </div>\n        </div>\n      </li>\n    ");
-        });
-    }
-    $product === null || $product === void 0 ? void 0 : $product.append(html);
-    var $btnAddToCart = document.querySelectorAll(".add-to-cart");
-    for (var i = 0; i < $btnAddToCart.length; i++) {
-        $btnAddToCart[i].addEventListener("click", addToCart);
-    }
+  var productData = (0, index_js_1.getLocal)(index_js_2.listKey.product);
+  var html = "";
+  if (productData) {
+    productData.map(function (data) {
+      html +=
+        '\n      <li class="col-3 product-item">\n        <div class="product-img">\n          <img src="'
+          .concat(
+            data.imgSrc,
+            '" alt="Image product" />\n          <div class="product-overlay">\n            <button data-id="'
+          )
+          .concat(
+            data.id,
+            '" class="btn btn-primary add-to-cart" >Add to cart</button>\n          </div>\n        </div>\n        <div class="product-content">\n          <h4 class="product-name">'
+          )
+          .concat(
+            data.name,
+            '</h4>\n          <div class="product-price">\n            <span class="price-sell">$'
+          )
+          .concat(
+            data.price,
+            "</span>\n          </div>\n        </div>\n      </li>\n    "
+          );
+    });
+  }
+  $product === null || $product === void 0 ? void 0 : $product.append(html);
+  var $btnAddToCart = document.querySelectorAll(".add-to-cart");
+  for (var i = 0; i < $btnAddToCart.length; i++) {
+    $btnAddToCart[i].addEventListener("click", addToCart);
+  }
 }
-function addToCart() {
-}
+function addToCart() {}
