@@ -1,0 +1,1 @@
+import {getLocal,setLocal} from './index'
