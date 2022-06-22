@@ -1,12 +1,12 @@
-import { listKey, productData, getLocal, setLocal, totalCart, renderTotalCart } from './index.js';
+import { listKey, productData, getLocal, setLocal, totalCart, renderTotalCart, productInCart } from './index.js';
 
 setLocal(listKey.product, productData);
 
 const renderData = () => {
-  let productData = getLocal(listKey.product);
+  let productData: productData[] = getLocal(listKey.product);
   let html = '';
   if (productData) {
-    productData.map((data: any) => {
+    productData.map((data: productData) => {
       html +=
         `<li class="col-3 product-item">
         <div class="product-img">
@@ -36,18 +36,18 @@ const renderData = () => {
   }
 }
 
-const addToCart = (e: any) => {
-  let productID: string = e.target.dataset.id;
+const addToCart = (e: Event) => {
+  let productID: string = (e.target as HTMLElement).dataset.id;
   handleQuantityCart('add', productID);
 }
 
 const handleQuantityCart = (mess: string, productID: string) => {
-  let productInCart = getLocal(listKey.cart);
-  let productData = getLocal(listKey.product);
-  let findProduct = productData.find((obj: any) => obj.id === productID);
+  let productInCart : productInCart[] = getLocal(listKey.cart);
+  let productData : productData [] = getLocal(listKey.product);
+  let findProduct : productData = productData.find((obj:productData) => obj.id === productID);
   if (mess === 'add') {
     if (productInCart) {
-      let cart = productInCart.find((obj: any) => obj.id === productID);
+      let cart = productInCart.find((obj: productInCart) => obj.id === productID);
       if (cart) {
         cart.qty++;
       } else {

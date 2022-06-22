@@ -1,8 +1,8 @@
-import { getLocal, setLocal, totalCart, listKey, renderTotalCart } from './index.js'
+import { getLocal, setLocal, totalCart, listKey, renderTotalCart, productInCart } from './index.js'
 
 const $productTableList = document.querySelector('.js-product-cart-list') as HTMLElement;
 
-let productInCart = getLocal(listKey.cart);
+let productInCart:productInCart[] = getLocal(listKey.cart);
 let total = 0;
 let subTotal = 0;
 let sum = 0;
@@ -17,7 +17,7 @@ const eventListenersCart = () => {
 const renderDataCart = () => {
   if (productInCart) {
     $productTableList.innerHTML = '';
-    productInCart.forEach((data: any) => {
+    productInCart.forEach((data: productInCart) => {
       let html = '';
       let price = data.price;
       let qty = data.qty;
@@ -67,10 +67,10 @@ const renderDataCart = () => {
   }
 }
 
-const updateQuantity = (e: any) => {
-  let productID: string = e.target.dataset.id;
+const updateQuantity = (e: Event) => {
+  let productID: string = (e.target as HTMLElement).dataset.id;
   let mess: string;
-  if (e.target.classList.contains('js-cart-quantity-up')) {
+  if ((e.target as HTMLElement).classList.contains('js-cart-quantity-up')) {
     mess = 'plus';
   } else {
     mess = 'minus';
@@ -79,18 +79,18 @@ const updateQuantity = (e: any) => {
 }
 
 const handleQuantity = (mess: string, productID: string) => {
-  let index = productInCart.findIndex((obj: any) => obj.id === productID);
-  let cart = productInCart.find((obj: any) => obj.id === productID);
+  let index = productInCart.findIndex((obj: productInCart) => obj.id === productID);
+  let cart:productInCart = productInCart.find((obj: productInCart) => obj.id === productID);
   let getQty = 0;
   if (mess === 'plus') {
-    getQty = parseInt(cart.qty) + 1;
+    getQty = cart.qty + 1;
     productInCart.map((data: any) => {
       if (data.id === productID) {
         data.qty++;
       }
     });
   } else {
-    getQty = parseInt(cart.qty) - 1;
+    getQty = cart.qty - 1;
     productInCart.map((data: any) => {
       if (data.id === productID) {
         if (data.qty > 1) {
@@ -105,9 +105,9 @@ const handleQuantity = (mess: string, productID: string) => {
   eventListenersCart();
 }
 
-const delProduct = (e: any) => {
-  let productID: string = e.target.dataset.id;
-  productInCart = productInCart.filter((item: any) => item.id !== productID)
+const delProduct = (e: Event) => {
+  let productID: string = (e.target as HTMLElement).dataset.id;
+  productInCart = productInCart.filter((item: productInCart) => item.id !== productID)
   setLocal(listKey.cart, productInCart);
   eventListenersCart();
 }
@@ -115,7 +115,7 @@ const delProduct = (e: any) => {
 const countCart = () => {
   let sumCart = 0;
   if (productInCart) {
-    productInCart.map((data: any) => {
+    productInCart.map((data: productInCart) => {
       let quantity = data.qty;
       let price = data.price;
       subTotal = +quantity * +price;

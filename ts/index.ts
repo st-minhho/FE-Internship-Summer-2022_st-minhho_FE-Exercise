@@ -1,4 +1,4 @@
-let $totalCount = document.querySelector(".total-cart");
+let $totalCount = document.querySelector('.total-cart');
 
 export const listKey = {
   product: 'product',
@@ -6,37 +6,45 @@ export const listKey = {
   cartTotal: 'cartTotal'
 };
 
-interface productData {
+export interface productData {
   id: string,
   name: string,
   price: number,
   imgSrc: string,
 }
 
-export const productData = [
+export interface productInCart {
+  id: string,
+  name: string,
+  price: number,
+  imgSrc: string,
+  qty: number
+}
+
+export const productData= [
   {
-    id: "pd1",
-    name: "T-Shirt Summer Vibes",
-    price: "89.99",
-    imgSrc: "./images/image-product1.png",
+    id: 'pd1',
+    name: 'T-Shirt Summer Vibes',
+    price: '89.99',
+    imgSrc: './images/image-product1.png',
   },
   {
-    id: "pd2",
-    name: "Loose Knit 3/4 Sleeve",
-    price: "119.99",
-    imgSrc: "./images/image-product2.png",
+    id: 'pd2',
+    name: 'Loose Knit 3/4 Sleeve',
+    price: '119.99',
+    imgSrc: './images/image-product2.png',
   },
   {
-    id: "pd3",
-    name: "Basic Slim Fit T-Shirt",
-    price: "119.99",
-    imgSrc: "./images/image-product3.png",
+    id: 'pd3',
+    name: 'Basic Slim Fit T-Shirt',
+    price: '119.99',
+    imgSrc: './images/image-product3.png',
   },
   {
-    id: "pd4",
-    name: "Loose Textured T-Shirt",
-    price: "119.99",
-    imgSrc: "./images/image-product4.png",
+    id: 'pd4',
+    name: 'Loose Textured T-Shirt',
+    price: '119.99',
+    imgSrc: './images/image-product4.png',
   },
 ];
 
