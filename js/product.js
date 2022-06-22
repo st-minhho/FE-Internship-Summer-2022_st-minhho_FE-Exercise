@@ -1,7 +1,7 @@
-import { listKey, productData, getLocal, setLocal, totalCart, renderTotalCart } from './index.js';
-setLocal(listKey.product, productData);
+import { LIST_KEY, productData, getLocal, setLocal, totalCart, renderTotalCart } from './index.js';
+setLocal(LIST_KEY.PRODUCT, productData);
 const renderData = () => {
-    let productData = getLocal(listKey.product);
+    let productData = getLocal(LIST_KEY.PRODUCT);
     let html = '';
     if (productData) {
         productData.map((data) => {
@@ -37,8 +37,8 @@ const addToCart = (e) => {
     handleQuantityCart('add', productID);
 };
 const handleQuantityCart = (mess, productID) => {
-    let productInCart = getLocal(listKey.cart);
-    let productData = getLocal(listKey.product);
+    let productInCart = getLocal(LIST_KEY.CART);
+    let productData = getLocal(LIST_KEY.PRODUCT);
     let findProduct = productData.find((obj) => obj.id === productID);
     if (mess === 'add') {
         if (productInCart) {
@@ -54,7 +54,7 @@ const handleQuantityCart = (mess, productID) => {
             productInCart = [];
             productInCart.push(Object.assign(Object.assign({}, findProduct), { qty: 1 }));
         }
-        setLocal(listKey.cart, productInCart);
+        setLocal(LIST_KEY.CART, productInCart);
         totalCart();
     }
 };

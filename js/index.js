@@ -1,9 +1,11 @@
 let $totalCount = document.querySelector('.total-cart');
-export const listKey = {
-    product: 'product',
-    cart: 'cart',
-    cartTotal: 'cartTotal'
-};
+export var LIST_KEY;
+(function (LIST_KEY) {
+    LIST_KEY["PRODUCT"] = "product";
+    LIST_KEY["CART"] = "cart";
+    LIST_KEY["CART_TOTAL"] = "cartTotal";
+})(LIST_KEY || (LIST_KEY = {}));
+;
 export const productData = [
     {
         id: 'pd1',
@@ -38,20 +40,20 @@ export const setLocal = (key, value) => {
     localStorage.setItem(key, JSON.stringify(value));
 };
 export const renderTotalCart = () => {
-    var cartTotal = getLocal(listKey.cartTotal);
+    var cartTotal = getLocal(LIST_KEY.CART_TOTAL);
     if ($totalCount) {
         $totalCount.innerHTML = cartTotal;
     }
 };
 export const totalCart = () => {
     let sumQtyCart = 0;
-    let countCart = getLocal(listKey.cart);
+    let countCart = getLocal(LIST_KEY.CART);
     if (countCart) {
         countCart.map((data) => {
             sumQtyCart += data.qty;
         });
     }
-    setLocal(listKey.cartTotal, sumQtyCart);
+    setLocal(LIST_KEY.CART_TOTAL, sumQtyCart);
     if ($totalCount) {
         $totalCount.innerHTML = sumQtyCart.toString();
     }

@@ -1,9 +1,9 @@
 let $totalCount = document.querySelector('.total-cart');
 
-export const listKey = {
-  product: 'product',
-  cart: 'cart',
-  cartTotal: 'cartTotal'
+export enum LIST_KEY {
+  PRODUCT = 'product',
+  CART = 'cart',
+  CART_TOTAL = 'cartTotal'
 };
 
 export interface productData {
@@ -21,7 +21,7 @@ export interface productInCart {
   qty: number
 }
 
-export const productData= [
+export const productData = [
   {
     id: 'pd1',
     name: 'T-Shirt Summer Vibes',
@@ -58,7 +58,7 @@ export const setLocal = (key: string, value: any) => {
 }
 
 export const renderTotalCart = () => {
-  var cartTotal = getLocal(listKey.cartTotal);
+  var cartTotal = getLocal(LIST_KEY.CART_TOTAL);
   if ($totalCount) {
     $totalCount.innerHTML = cartTotal;
   }
@@ -67,13 +67,13 @@ export const renderTotalCart = () => {
 
 export const totalCart = () => {
   let sumQtyCart = 0;
-  let countCart = getLocal(listKey.cart);
+  let countCart = getLocal(LIST_KEY.CART);
   if (countCart) {
     countCart.map((data: any) => {
       sumQtyCart += data.qty;
     });
   }
-  setLocal(listKey.cartTotal, sumQtyCart);
+  setLocal(LIST_KEY.CART_TOTAL, sumQtyCart);
   if ($totalCount) {
     $totalCount.innerHTML = sumQtyCart.toString();
   }

@@ -1,9 +1,9 @@
-import { listKey, productData, getLocal, setLocal, totalCart, renderTotalCart, productInCart } from './index.js';
+import { LIST_KEY, productData, getLocal, setLocal, totalCart, renderTotalCart, productInCart } from './index.js';
 
-setLocal(listKey.product, productData);
+setLocal(LIST_KEY.PRODUCT, productData);
 
 const renderData = () => {
-  let productData: productData[] = getLocal(listKey.product);
+  let productData: productData[] = getLocal(LIST_KEY.PRODUCT);
   let html = '';
   if (productData) {
     productData.map((data: productData) => {
@@ -42,8 +42,8 @@ const addToCart = (e: Event) => {
 }
 
 const handleQuantityCart = (mess: string, productID: string) => {
-  let productInCart : productInCart[] = getLocal(listKey.cart);
-  let productData : productData [] = getLocal(listKey.product);
+  let productInCart : productInCart[] = getLocal(LIST_KEY.CART);
+  let productData : productData [] = getLocal(LIST_KEY.PRODUCT);
   let findProduct : productData = productData.find((obj:productData) => obj.id === productID);
   if (mess === 'add') {
     if (productInCart) {
@@ -57,7 +57,7 @@ const handleQuantityCart = (mess: string, productID: string) => {
       productInCart = [];
       productInCart.push({ ...findProduct, qty: 1 });
     }
-    setLocal(listKey.cart, productInCart);
+    setLocal(LIST_KEY.CART, productInCart);
     totalCart();
   }
 

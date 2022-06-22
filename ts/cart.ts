@@ -1,8 +1,8 @@
-import { getLocal, setLocal, totalCart, listKey, renderTotalCart, productInCart } from './index.js'
+import { getLocal, setLocal, totalCart, LIST_KEY, renderTotalCart, productInCart } from './index.js'
 
 const $productTableList = document.querySelector('.js-product-cart-list') as HTMLElement;
 
-let productInCart:productInCart[] = getLocal(listKey.cart);
+let productInCart:productInCart[] = getLocal(LIST_KEY.CART);
 let total = 0;
 let subTotal = 0;
 let sum = 0;
@@ -101,14 +101,14 @@ const handleQuantity = (mess: string, productID: string) => {
       }
     });
   }
-  setLocal(listKey.cart, productInCart);
+  setLocal(LIST_KEY.CART, productInCart);
   eventListenersCart();
 }
 
 const delProduct = (e: Event) => {
   let productID: string = (e.target as HTMLElement).dataset.id;
   productInCart = productInCart.filter((item: productInCart) => item.id !== productID)
-  setLocal(listKey.cart, productInCart);
+  setLocal(LIST_KEY.CART, productInCart);
   eventListenersCart();
 }
 
