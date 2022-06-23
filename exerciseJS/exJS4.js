@@ -4,8 +4,9 @@
 // Ex: ('The quick brown fox jumps over the lazy dog', 4) => 'The quick brown fox'
 
 function truncateStr(string, number) {
-  var str = string.split(' ');
-  var newArr = str.splice(0, number);
-  console.log(newArr.join(' '));
+  let str = string.split(' ');
+  let newArr = str.splice(0, number);
+  
+  return newArr.join(' ');
 }
-truncateStr('The quick brown fox jumps over the lazy dog', 4);
+console.log(truncateStr('The quick brown fox jumps over the lazy dog', 4));

@@ -4,12 +4,13 @@
 // Ex: (4, 1, 10) => [3, 6, 1, 9]
 
 function randomArr(arrLength, min, max) {
-  var arr = [];
-  for(var i = 0; i<arrLength; i++){
-    var num = Math.floor(Math.random() * (max + min)) ;
-    arr.push(num);
-  }
+  let arr = [];
+  do {
+    let number = Math.floor(Math.random() * (max + min));
+    if (arr.indexOf(number) === -1) {
+      arr.push(number);
+    }
+  } while (arr.length < arrLength);
   return arr;
 }
 console.log(randomArr(4, 1, 10));
-

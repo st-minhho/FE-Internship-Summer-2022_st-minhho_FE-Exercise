@@ -4,10 +4,7 @@
 // Ex: ("FE", 4) => 'FEFEFEFE'
 
 function repeat(string, times) {
-  var a = '';
-  for (i = 0; i < times; i++) {
-    a += string;
-  }
-  return a;
+  let textRepeat = string.repeat(times)
+  return textRepeat;
 }
-console.log(repeat('FE', 10000));
+console.log(repeat('FE', 4));

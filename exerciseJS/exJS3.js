@@ -4,20 +4,10 @@
 // Ex: ('The quick brown fox jumps over the lazy dog', 'the') => 2
 // Ex: ('The quick brown fox jumps over the lazy dog', 'fox') => 1
 
- function countOcc(string, substring) {
-   var new_str = string.toLowerCase().split(' ');
-   var new_sub_str = substring.toLowerCase();
-   //var result = {};
-   var count = 0;
-
-   if (new_str.includes(new_sub_str)) {
-     for (i = 0; i < new_str.length; i++) {
-       if (new_str[i] == new_sub_str) {
-         //result.push(new_str[i]);
-         count++;
-       }
-     }
-   }
+ function countOcc(string, subString) {
+   let newStr = string.toLowerCase();
+   let newSubStr = subString.toLowerCase();
+   let count = newStr.split(newSubStr).length - 1;
    return count;
  }
- console.log(countOcc('The quick brown fox jumps over the lazy dog', 'the'));
+ console.log(countOcc('The quick brown fox jumps over the lazy dog', 'fox'));
