@@ -4,12 +4,12 @@
 // Ex: ('intern FE') => 'Nretni EF'
 
 function transformStr(string) {
-  let str = "";
-  let newStr = string.split(" ");
+  let str = '';
+  let newStr = string.split(' ');
   newStr.map((char) => {
-    let subStr = char.split("").reverse().join("");
-    str += subStr.charAt(0).toUpperCase() + subStr.slice(1) + " ";
+    let subStr = char.split('').reverse().join('');
+    str += subStr.charAt(0).toUpperCase() + subStr.slice(1) + ' ';
   });
   return str;
 }
-console.log(transformStr("intern FE"));
+console.log(transformStr('intern FE'));
