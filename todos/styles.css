@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-size: 15px;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+input {
+  margin: 0em;
+  padding: 1px 24px;
+  border: none;
+  background-color: field;
+  text-indent: 0px;
+  text-align: start;
+  appearance: auto;
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  writing-mode: horizontal-tb !important;
+}
+
+input:focus-visible {
+  outline: none;
+}
+.btn {
+  display: inline-block;
+  padding: 14px;
+  border: none;
+  border-radius: 33px;
+  font-size: var(--font-xs);
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all ease-in 0.1s;
+}
+
+.work-to-do {
+  text-align: center;
+  background-color: #e9c48b;
+  min-height: 100vh;
+}
+h2.title {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 50px;
+  padding: 12px 0;
+}
+p {
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+p.sub-title-input {
+  color: #d7906b;
+}
+p.sub-title-mark {
+  color: #b1994c;
+}
+p.sub-title-remove {
+  color: #b2b69f;
+}
+form.add-field {
+  margin-bottom: 30px;
+}
+input.add {
+  border: 0;
+  width: 50%;
+  height: 30px;
+  border-radius: 6px;
+  padding: 0 10px;
+}
+input:focus {
+  outline: none;
+}
+button.icon {
+  margin-left: 5px;
+  background-color: #ce9e57;
+  width: 41px;
+  height: 29px;
+  border-radius: 5px;
+  border: 0;
+}
+button.icon i {
+  color: #e9d9b7;
+  font-size: 15px;
+  padding: 7px;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+li.item {
+  width: 500px;
+  height: 40px;
+  background-color: #d1b185;
+  text-align: left;
+  border-radius: 6px;
+  border: 4px solid #a67451;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+li.item-check {
+  width: 500px;
+  height: 40px;
+  background-color: #d1b185;
+  text-align: left;
+  border-radius: 6px;
+  border: 4px solid #a67451;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: line-through;
+}
+li.item i {
+  color: #a67451;
+  margin-left: 10px;
+}
+li.item-check i {
+  color: #a67451;
+  margin-left: 10px;
+}
+input.item-field {
+  border: none;
+  background-color: #d1b185;
+  margin-left: 10px;
+  width: 450px;
+  color: #af7b3d;
+  font-weight: bold;
+}
+.App-link {
+  color: #61dafb;
+}
+
+.text-check {
+  text-decoration: line-through;
+  color: #aaa;
+  font-style: italic;
+}
