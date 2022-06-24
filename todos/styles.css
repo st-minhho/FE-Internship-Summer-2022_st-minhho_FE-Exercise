@@ -139,3 +139,7 @@ input.item-field {
   color: #aaa;
   font-style: italic;
 }
+
+.check-icon{
+  color: yellowgreen;
+}
