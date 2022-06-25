@@ -8,10 +8,9 @@ function calculates(array, number){
   let sum = 0;
   array.map((num)=>{
     if(num % number === 0){
-      sum += num
+      sum += num;
     }
   })
-  return sum
+  return sum;
 }
-
 console.log(calculates([1, 2, 3, 4, 5, 6, 7], 3));

@@ -11,3 +11,4 @@
    return count;
  }
  console.log(countOcc('The quick brown fox jumps over the lazy dog', 'fox'));
+ 
