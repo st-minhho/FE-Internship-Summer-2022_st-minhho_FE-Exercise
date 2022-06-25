@@ -7,9 +7,11 @@
   font-family: "Lucida Console", "Courier New", monospace;
 }
 input {
+  width: 150px;
   margin: 0em;
-  padding: 1px 24px;
+  padding: 14px 24px;
   border: none;
+  border-radius: 15px;
   background-color: field;
   text-indent: 0px;
   text-align: start;
@@ -26,120 +28,88 @@ input:focus-visible {
   display: inline-block;
   padding: 14px;
   border: none;
-  border-radius: 33px;
-  font-size: var(--font-xs);
+  border-radius: 15px;
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
+  color: #ffffff;
+  background-color: #d7906b;
   transition: all ease-in 0.1s;
+  cursor: pointer;
 }
 
 .work-to-do {
+  min-height: 100vh;
   text-align: center;
   background-color: #e9c48b;
-  min-height: 100vh;
 }
-h2.title {
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 50px;
+.title {
   padding: 12px 0;
+  font-size: 50px;
+  text-transform: uppercase;
+  color: #fff;
 }
 p {
   margin-bottom: 25px;
   font-weight: 500;
 }
-p.sub-title-input {
+.sub-title-input {
   color: #d7906b;
 }
-p.sub-title-mark {
+.sub-title-mark {
   color: #b1994c;
 }
-p.sub-title-remove {
+.sub-title-remove {
   color: #b2b69f;
 }
-form.add-field {
+.add-field {
   margin-bottom: 30px;
 }
-input.add {
-  border: 0;
-  width: 50%;
-  height: 30px;
-  border-radius: 6px;
-  padding: 0 10px;
+.js-content {
+  width: 400px;
 }
-input:focus {
-  outline: none;
-}
-button.icon {
-  margin-left: 5px;
-  background-color: #ce9e57;
-  width: 41px;
-  height: 29px;
-  border-radius: 5px;
-  border: 0;
-}
-button.icon i {
-  color: #e9d9b7;
-  font-size: 15px;
-  padding: 7px;
-}
-ul {
+.js-todo-list {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-li.item {
-  width: 500px;
-  height: 40px;
-  background-color: #d1b185;
-  text-align: left;
-  border-radius: 6px;
-  border: 4px solid #a67451;
-  margin-bottom: 15px;
+.todo-item {
   display: flex;
-  flex-direction: row;
   align-items: center;
-}
-li.item-check {
   width: 500px;
-  height: 40px;
-  background-color: #d1b185;
-  text-align: left;
-  border-radius: 6px;
-  border: 4px solid #a67451;
+  gap: 12px;
+  padding: 0 12px;
   margin-bottom: 15px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-decoration: line-through;
+  border-radius: 15px;
+  border: 4px solid #a67451;
+  background-color: #d1b185;
 }
-li.item i {
-  color: #a67451;
-  margin-left: 10px;
-}
-li.item-check i {
-  color: #a67451;
-  margin-left: 10px;
-}
-input.item-field {
+.todo-content {
+  width: 350px;
   border: none;
-  background-color: #d1b185;
-  margin-left: 10px;
-  width: 450px;
-  color: #af7b3d;
-  font-weight: bold;
+  background: none;
+  word-break: break-all;
 }
-.App-link {
-  color: #61dafb;
+
+.btn-check,
+.btn-remove,
+.btn-edit {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 50%;
+  color: black;
+  background-color: white;
 }
+
 
 .text-check {
-  text-decoration: line-through;
-  color: #aaa;
   font-style: italic;
+  text-decoration: line-through;
+  color: #a67451;
 }
 
-.check-icon{
-  color: yellowgreen;
+.check-icon {
+  background-color: #a67451;
+  color: #fff;
 }
